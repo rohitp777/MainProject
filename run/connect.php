@@ -10,4 +10,6 @@ if (!$connection){
 if (!$connection){
     die("Database Selection Failed" . mysql_error());
 }
+
+
 ?>

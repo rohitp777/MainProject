@@ -1,5 +1,5 @@
 .register-form{
-	width: 500px;
+	width: 0 auto;
 	margin: 0 auto;
 	text-align: left;
 	padding: 50px;
@@ -23,4 +23,37 @@ color: #FFF;}
 border: 0;
 width: 60px;
 padding: 8px;
+}
+
+
+body {
+	font-family:Arial, Helvetica, sans-serif
+}
+#availability_status {
+	font-size:11px;
+	margin-left:10px;
+}
+
+#email_status {
+	font-size:11px;
+	margin-left:10px;
+}
+input.form_element {
+	width: 221px;
+	background: transparent url('bg.jpg') no-repeat;
+	color : #747862;
+	height:20px;
+	border:0;
+	padding:4px 8px;
+	margin-bottom:0px;
+}
+
+.style_form {
+	margin:3px;
+}
+
+#submit_btn {
+	margin-left:0 auto;
+	height:30px;
+	width: 221px;
 }

@@ -1,10 +1,16 @@
 <?php
 	
 	require('connect.php');
-    // If the values are posted, insert them into the database.
+	$tbl_name="jobberland_tempjs";
+
+	// Random confirmation code 
+    $confirm_code=md5(uniqid(rand()));
+    
+	// If the values are posted, insert them into the database.
     if (isset($_POST['username']) && isset($_POST['passwd']))
-  
-		{
+  {
+		
+		//$confirm_code=md5(uniqid(rand()));
 		$email = $_POST['email_address'];
 		$username=$_POST['username'];
 		$password=md5($_POST['passwd']);
@@ -21,52 +27,257 @@
 		$postcode=$_POST['post_code'];
 		$phnumber=$_POST['phone_number'];
 		$fkcareerdegree=$_POST['fk_career_degree_id'];
+		$date=$_POST['date_register'];
 		$act=$_POST['actkey'];
 		
+		$comments=$_POST['admin_comments'];
+		$status=$_POST['employee_status'];
+		$isactive=$_POST['is_active'];
+		
 
-        $sql = "INSERT INTO jobberland_employee(email_address,username,passwd,title,fname,sname,address,address2,city,state_province,
-				country,post_code,phone_number,fk_career_degree_id,actkey)
+        $sql = "INSERT INTO $tbl_name(confirm_code,email_address,username,passwd,title,fname,sname,address,address2,city,state_province,
+				country,post_code,phone_number,fk_career_degree_id,date_register,actkey,admin_comments,employer_status,is_active)
 				VALUES
-				('$_POST[email_address]','$_POST[username]',md5('$_POST[passwd]'),'$_POST[title]','$_POST[fname]','$_POST[sname]',
+				('$confirm_code','$_POST[email_address]','$_POST[username]',md5('$_POST[passwd]'),'$_POST[title]','$_POST[fname]','$_POST[sname]',
 				'$_POST[address]','$_POST[address2]','$_POST[city]','$_POST[state_province]','$_POST[country]','$_POST[post_code]',
-				'$_POST[phone_number]','$_POST[fk_career_degree_id]','$_POST[actkey]')";
-			
-	 if( mysql_query($sql))
-	   {
-        $msg = "Username and Email-ID avaiable and Your Registration is Complete now proceed to Complete your profile.";
-       }
-	
-	   else
+				'$_POST[phone_number]','$_POST[fk_career_degree_id]','$_POST[date_register]','$_POST[actkey]','$_POST[admin_comments]',
+				'$_POST[employer_status]','$_POST[is_active]')";
+		$result=mysql_query($sql);
+		//if( mysql_query($sql))
+
+		//$count=mysql_num_rows($result);
+ if($result)
+    {
+        $rows=mysql_fetch_array($result);
+        //$password  =  $rows['passwd'];//FETCHING PASS
+      
+        $to = $rows['email_address'];
+        
+		
+		}
+
+/*		
+else
 	   {
 	   $msg="Username or Email-ID already exists.";
 	   }
-	   
-    }
+	   if(isset($msg) & !empty($msg)){
+		echo $msg;
+	}
+*/		
+//		if($result){
+	// ---------------- SEND MAIL FORM ----------------
+	require 'class.phpmailer.php';
+$mail = new PHPMailer();
+$mail->IsSMTP();
+$mail->Mailer = 'smtp';
+$mail->SMTPAuth = true;
+$mail->Host = 'smtp.gmail.com'; // "ssl://smtp.gmail.com" didn't worked
+$mail->Port = 465;
+$mail->SMTPSecure = 'ssl';
+$mail->Username = "rockyrox7777@gmail.com";
+$mail->Password = "uiopuiop";
+
+$mail->IsHTML(true); // if you are going to send HTML formatted emails
+$mail->SingleTo = true;
+
+$mail->From = "rockyrox7777@gmail.com";
+$mail->FromName = "Rohit Patil";
 	
-  mysql_close($connection);      
- ?>
+$mail->addAddress("rockyrox7777@gmail.com","User 2");
+	// send e-mail to ...
+	//$to=$email;
+
+$mail->Subject = "Your confirmation link here";
+$mail->Body = "Your Comfirmation link \r\n";
+$mail->Body = "Click on this link to activate your account \r\n";
+$mail->Body = "http://localhost/MainProject/run/confirm.php?passkey=$confirm_code";
+
+// send email
+//$mail->mail($mail->addAddress,$mail->Subject,$mail->Body,$mail->From);
+//}//
+
+
+// if not found 
+/*else 
+{
+echo "Not found your email in our database";
+}
+
+// if your email succesfully sent
+
+/*if($mail->Send())
+{
+echo "Your Confirmation link Has Been Sent To Your Email Address.";
+}
+else {
+echo "Cannot send Confirmation link to your e-mail address";
+}
+}
+*/
+
+if ($_POST ['email_address']="") {
+    echo "<span style='color: #ff0000;'>"."	Not found your email in our database"."</span>";
+        }
+        
+    //If the message is sent successfully, display success message otherwise display an error message.
+    if($result==1)
+    //if($count==1)
+	{
+	if(!$mail->Send())
+    echo "Message was not sent <br />PHPMailer Error: " . $mail->ErrorInfo;
+
+	else
+    echo "Your Password and Email-Id has been sent has been sent to your registered Email-ID";
+        
+    }
+        else
+        {
+        if($_POST['email_address']!="")
+        echo "<span style='color: #ff0000;'> Cannot send password to your e-mail address.Problem with sending mail...</span>";
+    }
+
+}	
+// mysql_close($connection); 
+?>
+
+		
+	 
 <DOCTYPE html>
 <html>
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <title>Rohit Patil Job Site</title>
 <link rel="stylesheet" type="text/css" href="style.css" />
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.0/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript"> <!--- include the our jquery file  --> 
+
+$(document).ready(function()//When the dom is ready 
+{
+$("#username").change(function() 
+{ //if theres a change in the username textbox
+
+var username = $("#username").val();//Get the value in the username textbox
+if(username.length > 3)//if the lenght greater than 3 characters
+{
+$("#availability_status").html('<img src="loader.gif" align="absmiddle">&nbsp;Checking availability...');
+//Add a loading image in the span id="availability_status"
+
+$.ajax({  //Make the Ajax Request
+    type: "POST",  
+    url: "ajax_check_username.php",  //file name
+    data: "username="+ username,  //data
+    success: function(server_response){  
+   
+   $("#availability_status").ajaxComplete(function(event, request){ 
+
+	if(server_response == '0')//if ajax_check_username.php return value "0"
+	{ 
+	$("#availability_status").html('<img src="available.png" align="absmiddle"> <font color="Green"> Available </font>  ');
+	//add this image to the span with id "availability_status"
+	}  
+	else  if(server_response == '1')//if it returns "1"
+	{  
+	 $("#availability_status").html('<img src="not_available.png" align="absmiddle"> <font color="red">Not Available </font>');
+	}  
+   
+   });
+   } 
+   
+  }); 
+
+}
+else
+{
+
+$("#availability_status").html('<font color="#cc0000">Username too short</font>');
+//if in case the username is less than or equal 3 characters only 
+}
+
+
+
+return false;
+});
+
+});
+
+//for email address
+$(document).ready(function()//When the dom is ready 
+{
+$("#email_address").change(function() 
+{ //if theres a change in the username textbox
+
+var email_address = $("#email_address").val();//Get the value in the username textbox
+if(email_address.length > 3)//if the lenght greater than 3 characters
+{
+$("#email_status").html('<img src="loader.gif" align="absmiddle">&nbsp;Checking availability...');
+//Add a loading image in the span id="availability_status"
+
+$.ajax({  //Make the Ajax Request
+    type: "POST",  
+    url: "ajax_check_username.php",  //file name
+    data: "email_address="+ email_address,  //data
+    success: function(server_response){  
+   
+   $("#email_status").ajaxComplete(function(event, request){ 
+
+	if(server_response == '0')//if ajax_check_username.php return value "0"
+	{ 
+	$("#email_status").html('<img src="available.png" align="absmiddle"> <font color="Green"> Available </font>  ');
+	//add this image to the span with id "availability_status"
+	}  
+	else  if(server_response == '1')//if it returns "1"
+	{  
+	 $("#email_status").html('<img src="not_available.png" align="absmiddle"> <font color="red">Not Available </font>');
+	}  
+   
+   });
+   } 
+   
+  }); 
+
+}
+else
+{
+
+$("#email_status").html('<font color="#cc0000">Email not valid</font>');
+//if in case the username is less than or equal 3 characters only 
+}
+
+
+
+return false;
+});
+
+});
+
+</script>
+
 </head>
 <body>
 <!-- Form for logging in the users -->
+<div id="content">
+
 <div class="register-form">
 <?php
 if(isset($msg) & !empty($msg)){
 		echo $msg;
 	}
- ?>
+ ?> 
 <h1>Register</h1>
-<form action="jsreg.php" method="POST">
+<form action="actlink.php" method="POST" id="tempjs">
+ 
+ <div class="style_form">
+Email:<input type="email" name="email_address" id="email_address" class="form_element"/><br>
+<span id="email_status"></span>
+</div>
 
-Email:<input type="email" name="email_address"><br>
-Username:<input type="text" name="username"><br>
-<!--input type="submit" value="Check Availability for Username and Email-ID"><br-->
+<div class="style_form">
+Username:<input type="text" name="username" id="username" class="form_element"/><br>
+<span id="availability_status"></span> </div>
 
 Password:<input type="password" name ="passwd"><br>
+
 Title:<Select name="title">
 <option selected>Select
 <option>Mr.
@@ -74,10 +285,19 @@ Title:<Select name="title">
 <option>Miss
 <option>Ms.
 <option>Dr.</select><br>
-First Name:<input type="text" name="fname"><br>
-Last Name:<input type="text" name="sname"><br>
+
+<div class="style_form">
+First Name:<input type="text" name="fname" class="form_element"/ ><br>
+</div>
+
+<div class="style_form">
+Last Name:<input type="text" name="sname" class="form_element"/><br>
+</div>
+
 Address:<input type="text" name="address"><br>
+
 Address2:<input type="text" name="address2"><br>
+
 Country:<select name="country"> 
 <option value="" selected="selected">Select Country</option> 
 <option value="United States">United States</option> 
@@ -322,7 +542,9 @@ Country:<select name="country">
 <option value="Zambia">Zambia</option> 
 <option value="Zimbabwe">Zimbabwe</option>
 </select>
+
 <br>
+
 State/Province:<select name="state_province" size="1">
 <option selected value="">Select State</option>
 <option value="None">None</option>
@@ -438,21 +660,31 @@ State/Province:<select name="state_province" size="1">
 <option value="West Bengal">West Bengal</option>
 <option value="Other">Other</option>
 </select>
+
 <br>
+
 City:<input type="text" name ="city"><br>
+
 Post Code:<input type="text" name ="post_code"><br>
+
 Contact no:<input type="tel" name ="phone_number"><br>
+	
 Applying Positions:<br>
-<input type="radio" name="fk_career_degree_id" value="1" checked>None of these<br>
+<input type="radio" name="fk_career_degree_id" value="1" checked>None of these<br>	
 <input type="radio" name="fk_career_degree_id" value="2">Student (Higher education/Graduate)<br>
 <input type="radio" name="fk_career_degree_id" value="3">Entry Level<br>
 <input type="radio" name="fk_career_degree_id" value="4">Experienced (Non-Manager)<br>
 <input type="radio" name="fk_career_degree_id" value="5">Manager (Manager/Supervisor of Staff)<br>
 <input type="radio" name="fk_career_degree_id" value="6">Executive (Director, Department Head)<br>
 <input type="radio" name="fk_career_degree_id" value="7">Senior Executive (Chairman, MD, CEO)<br>
+
 Date Register for Positions:<input type="date" name="date_register"><br>
+
 Email-ID (In case of password recovery):<input type="text" name ="actkey"><br>
-<input type="submit" value="Complete Registration">
+
+ <div class="style_form">
+<input name="submit" type="submit" value="Complete Registration" id="submit_btn" />
+</div>
 </form>
 <form action="Login.html" method="POST">
 <input type="submit" value="Continue to Sign-in">
