@@ -301,6 +301,8 @@ First Name:<input type="text" name="fname"><br>
 Last Name:<input type="text" name="sname"><br>
 Address:<input type="text" name="address"><br>
 Address2:<input type="text" name="address2"><br>
+
+<!--
 Country:<select name="country"> 
 <option value="" selected="selected">Select Country</option> 
 <option value="United States">United States</option> 
@@ -660,7 +662,15 @@ State/Province:<select name="state_province" size="1">
 <option value="Uttar Pradesh">Uttar Pradesh</option>
 <option value="West Bengal">West Bengal</option>
 <option value="Other">Other</option>
-</select>
+</select-->
+
+<script type="text/javascript" src="countries.js"></script>
+		
+Country:<select onchange="print_state('state_province',this.selectedIndex);" id="country" name ="country"></select>
+
+<br>
+State:<select name ="state_province" id ="state_province"></select>
+	<script language="javascript">print_country("country");</script>	
 <br>
 City:<input type="text" name ="city"><br>
 Post Code:<input type="text" name ="post_code"><br>

@@ -3,14 +3,16 @@
 	margin: 0 auto;
 	text-align: left;
 	padding: 50px;
-	color: #fff;
+	color: black;
 	background : #c4c4c4;
 	border-radius: 10px;
 	-webkit-border-radius:10px;
 	-moz-border-radius:10px;
 }
 
-.register-form form input{padding: 5px;}
+.register-form form input{padding: 5px;
+
+}
 .register-form .btn{background: #726E6E;
 padding: 7px;
 border-radius: 5px;
@@ -57,3 +59,52 @@ input.form_element {
 	height:30px;
 	width: 221px;
 }
+
+/*For Resume Form*/
+form.cmxform {
+	width: 370px;
+	font-size: 1.0em;
+	color: #333;
+}
+
+form.cmxform legend {
+	padding-left: 0;
+}
+
+form.cmxform legend, form.cmxform label {
+	color: #333;
+}
+
+form.cmxform fieldset {
+	border: none;
+	border-top: 1px solid #C9DCA6;
+	background: url(../images/cmxform-fieldset.gif) left bottom repeat-x;
+	background-color: #F8FDEF;
+}
+
+form.cmxform fieldset fieldset {
+	background: none;
+}
+
+form.cmxform fieldset p, form.cmxform fieldset fieldset {
+	padding: 0 auto;
+	background: url(../images/cmxform-divider.gif) left bottom repeat-x;
+}
+
+form.cmxform label.error, label.error {
+	/* remove the next line when you have trouble in IE6 with labels in list */
+	color: red;
+	font-style: italic
+}
+div.error { display: none; }
+input {	border: 1px solid black; }
+input.checkbox { border: none }
+input:focus { border: 1px dotted black; }
+input.error { border: 1px dotted red; }
+form.cmxform .gray * { color: gray; }
+
+.red {
+  content:"*" ;
+color: red
+}
+

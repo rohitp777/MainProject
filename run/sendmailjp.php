@@ -52,9 +52,9 @@ $mail->addAddress("rohit_patil23111988@yahoo.co.in","User 1");
 $mail->addAddress("rockyrox7777@gmail.com","User 2");
 
 $mail->Subject = "Rohit Patil JobSite Notifications";
-$mail->Body = "Hi, Your Email-Id used for registration is: "."$to"." <br/>Your Password is: "."$password"." ";
+//$mail->Body = "Hi, Your Email-Id used for registration is: "."$to"." <br/>Your Password is: "."$password"." ";
 
-		
+$mail->Body = "Hi, Your Email-Id used for registration is: "."$to"." <br/>Click on this link to change your password: <br/> "."http://localhost/MainProject/run/passwordjp.php"."" ; 			
 		
 		
 		
@@ -69,7 +69,7 @@ $mail->Body = "Hi, Your Email-Id used for registration is: "."$to"." <br/>Your P
 	if(!$mail->Send())
     echo "Message was not sent <br />PHPMailer Error: " . $mail->ErrorInfo;
 else
-    echo "Your Password and Email-Id has been sent has been sent to your registered Email-ID";
+    echo "Your Email-Id and Password Change settings has been sent to your registered Email-ID";
         
     }
         else

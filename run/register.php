@@ -5,7 +5,7 @@
 </head>
 <body>
 <div class="register-form">
-<form action="jsreg.php" method="post">
+<form action="tempjsreg.php" method="post">
 <h3>Register as Job Seeker</h3>
 <ul>
 <li>Submitting Resumes under vacancy</li>
@@ -17,7 +17,7 @@
 </form>
 <br><br><br><br><br>
 
-<form action="jpreg.php" method="post">
+<form action="tempjpreg.php" method="post">
 <h3>Register as Job Provider</h3>
 <ul>
 <li>Registering Vacancies</li>
