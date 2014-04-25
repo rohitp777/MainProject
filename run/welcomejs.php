@@ -31,7 +31,7 @@ echo $login_session=$row['id'];
 <ul id="css3menu1" class="topmenu">
 	<li class="topmenu"><a href="#" style="height:16px;line-height:16px;"><span>My Details</span></a>
 	<ul>
-		<li class="subfirst"><a href="#">My Account Details</a></li>
+		<li class="subfirst"><a href="http://localhost/MainProject/run/jsdetail.php">My Account Details</a></li>
 		<li><a href="#">Update Password</a></li>
 		<li class="sublast"><a href="#">My Job Applications</a></li>
 	</ul></li>
@@ -41,7 +41,11 @@ echo $login_session=$row['id'];
 		<li><a href="#">My Saved Resume</a></li>
 		<li class="sublast"><a href="#">My Covering Letter</a></li>
 	</ul></li>
-	<li class="topmenu"><a href="#" style="height:16px;line-height:16px;">Jobs Search</a></li>
+	<li class="topmenu"><a href="#" style="height:16px;line-height:16px;"><span>Jobs Search</span></a>
+	<ul>
+		<li class="subfirst"><a href="http://localhost/MainProject/run/jobsearchjs.php">Job Search by Keywords</a></li>
+		<li><a href="http://localhost/MainProject/run/jobsearchsector.php">Job Search by Sector</a></li>
+	</ul></li>
 	<li class="topmenu"><a href="#" style="height:16px;line-height:16px;">Career Advice</a></li>
 	<li class="topmenu"><a href="#" style="height:16px;line-height:16px;">Services</a></li>
 </ul><p class="_css3m"><a href="http://css3menu.com/">HTML Menu Code Generator </a> by Css3Menu.com</p>

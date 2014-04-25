@@ -1,0 +1,146 @@
+Type 1:
+
+SELECT j.id,j.job_ref,j.var_name,job_title,job_description,job_postion,j.city,
+j.state_province,j.country,fk_education_id,fk_career_id,fk_experience_id,
+job_salary,j.company_name,j.company_logo,j.contact_name,contact_telephone,j.site_link,poster_email,apply_count,
+job_startdate,job_enddate,cat.id,cat.cat_name,stat.fk_job_id,stat.fk_job_status_id,
+type.fk_job_id,type.fk_job_type_id,jobstat.id,jobstat.status_name,jobtype.id,jobtype.type_name
+FROM jobberland_job AS j
+INNER JOIN jobberland_employer AS emp 
+ON j.fk_employer_id = emp.id
+inner join jobberland_category as cat
+on emp.id=cat.id
+inner join jobberland_job2status as stat
+on j.id=stat.fk_job_id
+inner join jobberland_job2type as type
+on j.id=type.fk_job_id
+inner join jobberland_job_status as jobstat
+on stat.fk_job_status_id=jobstat.id
+inner join jobberland_job_type as jobtype
+on type.fk_job_type_id=jobtype.id
+
+Type: 2
+SELECT j.id,j.job_ref,j.var_name,job_title,job_description,job_postion,j.city,
+j.state_province,j.country,fk_education_id,fk_career_id,fk_experience_id,
+job_salary,j.company_name,j.company_logo,j.contact_name,contact_telephone,j.site_link,poster_email,apply_count,
+job_startdate,job_enddate,cat.id,cat.cat_name,stat.fk_job_id,stat.fk_job_status_id,
+type.fk_job_id,type.fk_job_type_id,jobstat.id,jobstat.status_name,jobtype.id,jobtype.type_name,
+edu.id,edu.education_name,car.id,car.career_name,exp.id,exp.experience_name
+FROM jobberland_job AS j
+INNER JOIN jobberland_employer AS emp 
+ON j.fk_employer_id = emp.id
+inner join jobberland_category as cat
+on j.var_name=cat.id
+inner join jobberland_job2status as stat
+on j.id=stat.fk_job_id
+inner join jobberland_job2type as type
+on j.id=type.fk_job_id
+inner join jobberland_job_status as jobstat
+on stat.fk_job_status_id=jobstat.id
+inner join jobberland_job_type as jobtype
+on type.fk_job_type_id=jobtype.id
+inner join jobberland_education as edu
+on fk_education_id=edu.id
+inner join jobberland_career_degree as car
+on fk_career_id=car.id
+inner join jobberland_experience as exp
+on fk_experience_id=exp.id
+order by j.id
+
+Job search:
+SELECT id, job_title, job_postion
+FROM jobberland_job
+WHERE id =1
+
+type 2:
+SELECT j.id,j.job_ref,j.var_name,job_title,job_description,job_postion,j.city,
+j.state_province,j.country,fk_education_id,fk_career_id,fk_experience_id,
+job_salary,j.company_name,j.company_logo,j.contact_name,contact_telephone,j.site_link,poster_email,apply_count,
+job_startdate,job_enddate,cat.id,cat.cat_name,stat.fk_job_id,stat.fk_job_status_id,
+type.fk_job_id,type.fk_job_type_id,jobstat.id,jobstat.status_name,jobtype.id,jobtype.type_name,
+edu.id,edu.education_name,car.id,car.career_name,exp.id,exp.experience_name,
+search.id,search.results,search.created_on
+FROM jobberland_job AS j
+INNER JOIN jobberland_employer AS emp 
+ON j.fk_employer_id = emp.id
+inner join jobberland_category as cat
+on j.var_name=cat.id
+inner join jobberland_job2status as stat
+on j.id=stat.fk_job_id
+inner join jobberland_job2type as type
+on j.id=type.fk_job_id
+inner join jobberland_job_status as jobstat
+on stat.fk_job_status_id=jobstat.id
+inner join jobberland_job_type as jobtype
+on type.fk_job_type_id=jobtype.id
+inner join jobberland_education as edu
+on fk_education_id=edu.id
+inner join jobberland_career_degree as car
+on fk_career_id=car.id
+inner join jobberland_experience as exp
+on fk_experience_id=exp.id
+inner join jobberland_search as search
+on j.id=search.results
+inner join jobberland_employee as
+
+order by j.id
+
+type 3: main:
+
+
+SELECT j.id,j.job_ref,j.var_name,job_title,job_description,job_postion,j.city,
+j.state_province,j.country,fk_education_id,fk_career_id,fk_experience_id,
+job_salary,j.company_name,j.company_logo,j.contact_name,contact_telephone,j.site_link,poster_email,apply_count,
+job_startdate,job_enddate,cat.id,cat.cat_name,stat.fk_job_id,stat.fk_job_status_id,
+type.fk_job_id,type.fk_job_type_id,jobstat.id,jobstat.status_name,jobtype.id,jobtype.type_name,
+edu.id,edu.education_name,car.id,car.career_name,exp.id,exp.experience_name,
+s.id,s.results,s.created_on
+FROM jobberland_job as j
+inner join jobberland_search as s
+on j.id=s.results
+inner join jobberland_category as cat
+on j.var_name=cat.id
+inner join jobberland_job2status as stat
+on j.id=stat.fk_job_id
+inner join jobberland_job2type as type
+on j.id=type.fk_job_id
+inner join jobberland_job_status as jobstat
+on stat.fk_job_status_id=jobstat.id
+inner join jobberland_job_type as jobtype
+on type.fk_job_type_id=jobtype.id
+inner join jobberland_education as edu
+on fk_education_id=edu.id
+inner join jobberland_career_degree as car
+on fk_career_id=car.id
+inner join jobberland_experience as exp
+on fk_experience_id=exp.id
+inner join jobberland_search as search
+on j.id=search.results 
+
+order by j.id
+
+cv look up:type 1
+select c.id,c.cv_title,c.cv_description,cv_file_name,c.year_experience,c.highest_education,c.salary_range,c.availability,
+c.start_date,c.positions,c.recent_job_title,c.recent_employer,c.recent_industry_work,c.look_job_type,c.look_job_status,
+c.city,c.state_province,c.country,c.are_you_auth,c.willing_to_relocate,c.willing_to_travel,cv.cv_id,cv.category_id,
+cat.id,cat.cat_name
+from jobberland_cv_detail as c
+inner join jobberland_cv_look_occupation as cv
+on c.id=cv.cv_id
+inner join jobberland_category as cat
+on cv.category_id=cat.id
+
+type 2:
+select c.id,c.cv_title,c.cv_description,cv_file_name,c.year_experience,c.highest_education,c.salary_range,c.availability,
+c.start_date,c.positions,c.recent_job_title,c.recent_employer,c.recent_industry_work,c.look_job_type,c.look_job_status,
+c.city,c.state_province,c.country,c.are_you_auth,c.willing_to_relocate,c.willing_to_travel,cv.cv_id,cv.category_id,
+cat.id,cat.cat_name,j.id,j.var_name,j.fk_employer_id,j.contact_name,emp.id
+from jobberland_cv_detail as c
+inner join jobberland_cv_look_occupation as cv
+on c.id=cv.cv_id
+inner join jobberland_category as cat
+on cv.category_id=cat.id
+inner join jobberland_job as j
+on cv.category_id=j.var_name
+inner join jobberland_employer as emp
+on j.fk_employer_id=emp.id

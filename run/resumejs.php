@@ -229,7 +229,8 @@ font-size:20px;
 		<br>
 			<label for="cv_title">Application Name: <span class="red">*</span> </label>
 			<input name="cv_title" minlength="2" type="text" required />
-		<br>
+		<br>	
+	
 		<br>
 			<label for="cv_description">Skills: </label>
 			<input  type="text" name="cv_description"/>

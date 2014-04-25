@@ -13,8 +13,9 @@
 .register-form form input{padding: 5px;
 
 }
-.register-form .btn{background: #726E6E;
-padding: 7px;
+.register-form .btn{
+background: #726E6E;
+padding:7px;
 border-radius: 5px;
 text-decoration: none;
 width: 50px;

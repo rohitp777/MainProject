@@ -31,10 +31,33 @@ header("location: welcomejs.php");
 }
 else 
 {
-$error="Your Login Name or Password is invalid";
+$msg ="Your Login Name or Password is invalid";
 }
 }
 ?>
+
+<DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Rohit Patil Job Site</title>
+<link rel="stylesheet" type="text/css" href="style.css" />
+
+</head>
+<body>
+<!-- Form for logging in the users -->
+<div id="content">
+
+<div class="register-form">
+<?php
+if(isset($msg) & !empty($msg)){
+		echo $msg;
+	}
+ ?> 
+ </body>
+ </div>
+ </div>
+ </html>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <!--html xmlns="http://www.w3.org/1999/xhtml">
