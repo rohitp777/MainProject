@@ -42,9 +42,10 @@ if(isset ($_POST['fk_employee_id']) && isset($_POST['cv_title']))
 		//$views=$_POST['no_views'];
 		$created=$_POST['created_at'];
 		$modified=$_POST['modified_at'];
+			$category=$_POST['var_name'];
 		
 
-        $sql = "INSERT INTO jobberland_cv_detail(fk_employee_id,cv_title,cv_description,cv_file_name,cv_file_type,
+        $sql1 = "INSERT INTO jobberland_cv_detail(fk_employee_id,cv_title,cv_description,cv_file_name,cv_file_type,
 				cv_file_exe,cv_file_size,cv_status,year_experience,highest_education,salary_range,availability,
 				start_date,positions,recent_job_title,recent_employer,recent_industry_work,look_job_type,look_job_status,
 				city,state_province,country,are_you_auth,willing_to_relocate,willing_to_travel,additional_notes,created_at,modified_at)
@@ -54,7 +55,7 @@ if(isset ($_POST['fk_employee_id']) && isset($_POST['cv_title']))
 				'$_POST[start_date]','$_POST[positions]','$_POST[recent_job_title]','$_POST[recent_employer]','$_POST[recent_industry_work]','$_POST[look_job_type]','$_POST[look_job_status]',
 				'$_POST[city]','$_POST[state_province]','$_POST[country]','$_POST[are_you_auth]','$_POST[willing_to_relocate]','$_POST[willing_to_travel]','$_POST[additional_notes]','$_POST[created_at]','$_POST[modified_at]')";
 			
-	 if(mysql_query($sql))
+	 /*if(mysql_query($sql))
 	   {
         echo "Entered Success";
        }
@@ -66,7 +67,48 @@ if(isset ($_POST['fk_employee_id']) && isset($_POST['cv_title']))
     }
 
 	    mysql_close($connection); 
+		*/
 		
+			 if($result1 = mysql_query($sql1))
+	 {
+	 $cvid=mysql_insert_id();
+	 
+	// $sql2=mysql_query("select * from jobberland_category where var_name='$category' ");
+	 //$row=mysql_fetch_array($sql2);
+	 //$id=$row['id'];
+	 //$varname=$row['var_name'];
+	 
+	 $sql3="INSERT INTO jobberland_cv_look_occupation(cv_id,category_id) VALUES ('$cvid', '$_POST[var_name]')";
+	 
+	// $sql4="INSERT INTO jobberland_job2status(fk_job_id,fk_job_status_id) VALUES ('$jobid', '$_POST[fk_job_status_id]')";
+	 
+	//$sql5 = "INSERT INTO jobberland_job2type(fk_job_id,fk_job_type_id) VALUES ('$jobid', '$_POST[fk_job_type_id]')";
+	 
+	 if ($result2 = mysql_query($sql3))
+	 {
+	 echo "Entered Success";
+	 }
+	 
+	  else
+	   {
+	  die("Error:".mysql_error());
+	   }
+	 }
+	 /*if(mysql_query($sql))
+	   {
+        echo "Entered Success";
+		
+       }
+	
+	   else
+	   {
+	  die("Error:".mysql_error());
+	   }*/
+   
+
+   }
+
+	    mysql_close($connection); 
       
 ?>
 
@@ -384,10 +426,44 @@ font-size:20px;
 		    <input type="date" name="modified_at">
 		<br>
 		<br>
+		Job Industry Sector:<select name="var_name"> 
+<option selected>---Select Job Category---</option>
+<option value="1">Accounting and Auditing Services</option> 
+<option value="2">Advertising and PR Services </option>  
+<option value="3">Aerospace and Defence </option>  
+<option value="4">Agriculture/Forestry/Fishing </option>  
+<option value="5">Architectural and Design Services</option>
+<option value="6">Automotive and Parts Mfg</option>  
+<option value="7">Automotive Sales and Repair Services </option>  
+<option value="8">Banking and Consumer Lending </option>  
+<option value="9">Biotechnology/Pharmaceuticals </option>  
+<option value="10"> Broadcasting, Music, and Film</option>  
+<option value="11">Business Services - Other </option>  
+<option value="12"> Chemicals/Petro-Chemicals</option>  
+<option value="13"> Clothing and Textile Manufacturing</option>  
+<option value="14"> Computer Hardware</option>  
+<option value="15"> Computer Software</option>  
+<option value="16">Computer/IT Services </option>  
+<option value="17">Construction - Industrial Facilities and Infrastructure </option>  
+<option value="18"> Construction - Residential & Commercial/Office</option>  
+<option value="19"> Education</option>  
+<option value="20"> Electronics, Components, and Semiconductor Mfg</option>  
+<option value="21"> Energy and Utilities</option>  
+<option value="22">Engineering Services </option>  
+<option value="23">Entertainment Venues and Theatres </option>  
+<option value="24">Financial Services </option>  
+<option value="25">Food and Beverage Production </option>  
+<option value="26">Government and Public Sector </option>  
+<option value="27">Healthcare Services </option>  
+<option value="28"> Hotels and Lodging</option>  		
+<option value="29">Insurance  </option>  	
+<option value="30">Internet Services </option>  	
+</select>
+<br>	
 		<input type="submit" name="Submit" value="Submit Application" >
 		</form>
 		<br>
-		<form action="cvupload.php" method="POST">
+		<form action="cvupload.php" method="POSt">
 		<input type="submit" value="Continue to Upload Resume">
 		</form>
 			

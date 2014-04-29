@@ -85,20 +85,26 @@ echo "Error";
 
 ?>
 
-<br><br>
-<form action="cvidpost.php" method="POST">
+<!--br><br>
+<form action="cvidpost.php" method="post">
 <b>Your Resume ID:</b> <input type="text" name="cv_id" 
 value="<?php 
-require('connect.php');
+/*require('connect.php');
 $login_session=$row['id'];
-$ses_sql=mysql_query("select * from jobberland_cv_detail where fk_employee_id='$login_session' ");
 
-$row=mysql_fetch_array($ses_sql);
+$ses_sql=mysql_query("select id from jobberland_cv_detail where fk_employee_id='$login_session'");
 
-$id=$row['id'];
+//$row=mysql_fetch_array($ses_sql);
+
+
+		while($row=mysql_fetch_array($ses_sql))
+	{
+
+$cvid=$row['id'];
 
 echo $id=$row['id'];
-
+}
+*/
 ?>"  readonly /> 
 <br><br>
 
@@ -139,7 +145,7 @@ echo $id=$row['id'];
 		<br>
 		
 <input type="submit" value="submit">
-</form>		
+</form-->		
 
 
 

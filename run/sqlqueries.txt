@@ -144,3 +144,25 @@ inner join jobberland_job as j
 on cv.category_id=j.var_name
 inner join jobberland_employer as emp
 on j.fk_employer_id=emp.id
+
+type 3: Adding and dropping unique key:
+To add unique:
+alter table people add unique (eye_color)
+
+to drop unique:
+ALTER TABLE user DROP INDEX username;
+
+type 4: For job apply check
+select s.id,s.fk_employee_id,s.fk_job_id,s.date_saved,emp.id,emp.fname,emp.sname,emp.email_address,emp.phone_number,j.id,j.fk_employer_id,e.id
+					from jobberland_save_job as s
+					inner join jobberland_employee as emp
+					on s.fk_employee_id=emp.id
+                                        inner join jobberland_job as j
+                                        on s.fk_job_id=j.id
+                                        inner join jobberland_employer as e
+                                        on j.fk_employer_id=e.id
+                                        
+					
+                                        
+                                        
+					

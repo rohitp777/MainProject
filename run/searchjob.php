@@ -9,15 +9,19 @@
  //if($_SERVER["REQUEST_METHOD"] == "POST")
 //if(isset ($_POST['fk_employer_id']) && isset($_POST['company_name']))
 //if(isset ($_POST['submit']))	
-	if(isset ($_POST['fk_job_id']) && isset ($_POST['fk_job_type_id']))
+	if(isset ($_POST['keywords']) && isset ($_POST['results']))
 	{
 			
-		$categoryid=$_POST['fk_job_id'];
-		$id=$_POST['fk_job_type_id'];
+		$keyword=$_POST['keywords'];
+		$results=$_POST['results'];
+		$position=$_POST['created_on'];
+		$desc=$_POST['description'];
+		//$link=$_POST['link'];
 	
 		
 			
-			$sql = "INSERT INTO jobberland_job2type(fk_job_id,fk_job_type_id) VALUES ('$_POST[fk_job_id]', '$_POST[fk_job_type_id]')";
+			$sql = "INSERT INTO jobberland_search(keywords,results,created_on,description) VALUES
+			('$_POST[keywords]', '$_POST[results]', '$_POST[created_on]', '$_POST[description]')";
 		
 				
 	 if(mysql_query($sql))
@@ -48,8 +52,8 @@
 <body>
 <div id="content">
 <div class="register-form">
-<form action="job2type.php" method="POST">
-Job Posting ID: <input type="text" name="fk_job_id" value="<?php //echo $login_session=$row['id'];
+<form action="searchjob.php" method="POST">
+<label for="results">Job Search ID:  </label><input type="text" name="results" value="<?php //echo $login_session=$row['id'];
 
 require('connect.php');
 
@@ -67,13 +71,17 @@ echo $id=$row['id'];
 
 ?>"  readonly /> 
 <br><br>
-
-			Job Type:<br>
-			<input type="radio" name="fk_job_type_id" value="1" />Full-time<br>	
-			<input type="radio" name="fk_job_type_id" value="2" />Part-Time<br>
-			<input type="radio" name="fk_job_type_id" value="3" />Per Day<br>
-				
+<label for="keywords">Mention Your keywords for Employee Searching this Job: </label>
+			<input  name="keywords" type="text"/>
 		<br>
+		<br>
+			<label for="created_on">Job Search Title:</label>
+			<input name="created_on" type="text" />
+	<br>
+		<br>
+			<label for="description">Job Role:</label>
+			<input name="description" type="text" />
+	
 		
 
 <br><br>
@@ -87,9 +95,9 @@ echo $id=$row['id'];
 		
 		<input type="submit" name="submit" value="Continue">
 		</form-->
-	<form action="searchjob.php" method="POST">
+	<form action="welcomejp.php" method="POST">
 		
-		<input type="submit" name="submit" value="Continue">
+		<input type="submit" name="submit" value="Home Page">
 		</form>
 		
 		

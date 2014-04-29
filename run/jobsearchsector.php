@@ -31,7 +31,7 @@
 <option value="Computer IT Services ">Computer/IT Services </option>  
 <option value="construction industrial facilities infrastructure">Construction - Industrial Facilities and Infrastructure </option>  
 <option value="construction residential commercial office"> Construction - Residential & Commercial/Office</option>  
-<option value="rducation"> Education</option>  
+<option value="education"> Education</option>  
 <option value="electronics"> Electronics, Components, and Semiconductor Mfg</option>  
 <option value="energy utilities"> Energy and Utilities</option>  
 <option value="engineering services">Engineering Services </option>  

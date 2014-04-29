@@ -90,7 +90,8 @@ on fk_experience_id=exp.id" );
 
 
 $row=mysql_fetch_array($ses_sql);
-
+	
+		
 		$jobid=$row['id'];
 		//$fkemployerid=$row['fk_employer_id'];
 		$jobref=$row['job_ref'];

@@ -33,7 +33,7 @@ echo $login_session=$row['sname']. "&nbsp;" . "of" . "&nbsp;" . $login_session=$
 	<ul>
 		<li class="subfirst"><a href="http://localhost/MainProject/run/jobpost.php">Advertise a Job</a></li>
 		<li><a href="http://localhost/MainProject/run/jobadvertisedetail.php">View Advertised Jobs</a></li>
-		<li class="sublast"><a href="#">View Job Applications</a></li>
+		<li class="sublast"><a href="http://localhost/MainProject/run/viewjobapply.php">View Job Applications</a></li>
 	</ul></li>
 	<!--li class="topmenu"><a href="#" style="height:16px;line-height:16px;">My Banners</a>
 	<ul>

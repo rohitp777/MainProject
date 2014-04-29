@@ -123,13 +123,13 @@
 <head>
 <meta charset="utf-8">
 <title>My Job Posts</title>
-
 <!--link rel="stylesheet" href="css/screen.css" /-->
 <link rel="stylesheet" type="text/css" href="style.css" />
 
 
 	<div id="content">
 	<div class="register-form">
+	<h3><span class="red">*</span>For Posting New Job by this Profile Log In again</h3>
 
 	<form action="jobpost.php" method="POST">
 		
@@ -251,7 +251,7 @@ Job Industry Sector:<select name="var_name">
 			<input name="company_name" type="text" value="<?php echo $login_session=$row['company_name'];?>" />
 		<br>
 		<br>
-			<label for="company_logo">Company Logo:</label>
+			<label for="company_logo">Job Reference:</label>
 			<input name="company_logo" type="text" />
 		<br>
 		<br>
@@ -266,8 +266,8 @@ Job Industry Sector:<select name="var_name">
 		<br>	
 		<br>
 		
-			<label for="site_link">Website Link:</label>
-			<input type="url" name ="site_link" value="<?php echo $login_session=$row['site_link'];?> ">
+			<label for="site_link">Website Link for Posting for this Job:</label>
+			<input type="url" name ="site_link" value="https://">
 		<br>	
 		<br>
 		
