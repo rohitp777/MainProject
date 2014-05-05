@@ -39,7 +39,7 @@ include('lockjp.php');
 			
 	 if( mysql_query($sql))
 	   {
-        $msg = "Your Account has been Updated";
+        $msg = "Thank You!!! Your Account has been Updated";
        }
 	  else
 	   {
@@ -51,95 +51,137 @@ include('lockjp.php');
   mysql_close($connection);      
  ?>
 
-<DOCTYPE html>
+
+
+
+<!DOCTYPE HTML>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<title>Rohit Patil Job Site</title>
-<link rel="stylesheet" type="text/css" href="style.css" />
-
+	<meta charset="UTF-8">
+	<title>Rohit Patil Job Site</title>
+	<link rel="stylesheet" href="css/style.css" type="text/css">
 </head>
 <body>
-<!-- Form for logging in the users -->
-<div id="content">
-
-<div class="register-form">
+	<div id="header">
+		<div class="clearfix">
+			<div class="logo">
+				<a href="index.html"><img src="images/logotop2.png" alt="LOGO" height="52" width="362"></a>
+			</div>
+			<marquee><b>Welcome,<?php echo $login_session=$row['title']. "&nbsp;" . $login_session=$row['fname'];
+echo ". ";
+echo $login_session=$row['sname']. "&nbsp;" . "of" . "&nbsp;" . $login_session=$row['company_name']. "&nbsp;" . "Company";
+  ?></b></marquee>
+			<ul class="navigation">
+				<li class="active">
+					<a href="http://localhost/MainProject/run/welcomejp.php">Home</a>
+				</li>
+				<li>
+					<a href="#">My Details</a>
+					<div>
+						<a href="http://localhost/MainProject/run/jpdetail.php">MY ACCOUNT DETAILS</a>
+						<a href="http://localhost/MainProject/run/forgotjp.php">UPDATE PASSWORD</a>
+					</div>
+				</li>
+				<li>
+					<a href="#">My Jobs</a>
+					<div>
+						<a href="http://localhost/MainProject/run/jobpost.php">ADVERTISE A JOB</a>
+						<a href="http://localhost/MainProject/run/jobadvertisedetail.php">VIEW ADVERTISED JOBS</a>
+							<a href="http://localhost/MainProject/run/viewjobapply.php">VIEW JOB APPLICATIONS</a>
+					</div>
+				</li>
+				<li>
+					<a href="http://localhost/MainProject/run/searchcvjp.php">Search For Resume's</a>
+				</li>
+				<li>
+					<a href="http://localhost/MainProject/run/recruiter.php">Recruiter Resources</a>
+				</li>
+				<li>
+					<a href="logoutjp.php">Log Out</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div id="contents">
+		<div class="clearfix">
+<p>		
+<b>
 <?php
 if(isset($msg) & !empty($msg)){
 		echo $msg;
 	}
  ?> 
-
-<h1>Register</h1>
-<form action="updatejp.php" method="POST" id="updatejp">
- 
- <div class="style_form">
- <b><span class="red">*</span>For Updating all Fields are mandatory</b><br><br>
- 
- <div class="style_form">
-Company Name:<input type="text" name="company_name" value="<?php echo $login_session=$row['company_name']; ?>"><br><br>
-</div>
-
- <div class="style_form">
-Contact Name:<input type="text" name="contact_name" value="<?php echo $login_session=$row['contact_name']; ?>"><br><br>
-</div>
-
- <div class="style_form">
-Website Link:<input type="url" name ="site_link" value="<?php echo $login_session=$row['site_link'];?>"><br><br>
-</div>
-
- <div class="style_form">
-Company's Detail:<br>
+ </b>
+ </p>
+			<h1>Update Your Personal Details</h3>
+			<form action="updatejp.php" method="POST" id="updatejs">
+				<h2>Note: (For Updating all Fields are mandatory)*</h2>
+			<div class="frame2">
+				<div class="box">
+					<img src="images/update1.jpg" alt="Img" height="298" width="924">
+				</div>
+			</div>
+			<p>
+			<b>Company Name:*</b> <input type="text" name="company_name" value="<?php echo $login_session=$row['company_name']; ?>" required/><br><br>
+			
+			<b>Contact Name:*</b><input type="text" name="contact_name" value="<?php echo $login_session=$row['contact_name']; ?>" required/><br><br>
+			
+			<b>Website Link:*</b><input type="url" name ="site_link" value="<?php echo $login_session=$row['site_link'];?>" required/><br><br>
+			
+			<b>Company's Detail:*</b><br>
 <textarea name="company_desc" ROWS="5" COLS="50"><?php echo $login_session=$row['company_desc'];?></textarea><br><br>
-</div>
 
+<b>Email:*</b><input type="email" name="email_address" id="email_address" value="<?php echo$login_session=$row['email_address'];?>" class="form_element" readonly /><br><br>
 
-Email:<input type="email" name="email_address" id="email_address" value="<?php echo$login_session=$row['email_address'];?>" class="form_element" readonly />
+<b>Username:*</b> <input type="text" name="username" id="username" value="<?php echo $login_session=$row['username']; ?>" readonly /><br><br>
 
-</div>
-<br><br>
+<b>First Name:*</b><input type="text" name="fname" value="<?php echo $login_session=$row['fname']; ?>" required/><br><br>
 
-<div class="style_form">
-Username:<input type="text" name="username" id="username" value="<?php echo $login_session=$row['username']; ?>" class="form_element" readonly /><br>
- </div>
-<br>
+<b>Last Name:*</b> <input type="text" name="sname" value="<?php echo $login_session=$row['sname']; ?>" required/><br><br>
 
-<div class="style_form">
-First Name:<input type="text" name="fname" value="<?php echo $login_session=$row['fname']; ?>" /><br><br>
-</div>
+<b>Address:*</b><input type="text" name="address" value="<?php echo $login_session=$row['address']; ?>" required/><br><br>
 
-<div class="style_form">
-Last Name:<input type="text" name="sname" value="<?php echo $login_session=$row['sname']; ?>" /><br><br>
-</div>
+<b>Address2:*</b> <input type="text" name="address2" value="<?php echo $login_session=$row['address2']; ?>" required/><br><br>
 
-Address:<input type="text" name="address" value="<?php echo $login_session=$row['address']; ?>" /><br><br>
-
-Address2:<input type="text" name="address2" value="<?php echo $login_session=$row['address2']; ?>" /><br><br>
+<b>City:*</b> <input type="text" name="city" value="<?php echo $login_session=$row['city']; ?>" required/><br><br>
 
 <script type="text/javascript" src="countries.js"></script>
 
-Update Country:<select onchange="print_state('state_province',this.selectedIndex);" id="country" name ="country"></select>
+<b>Update Country:*</b> <select onchange="print_state('state_province',this.selectedIndex);" id="country" name ="country"></select><br><br>
 
-<br><br>
-Update State:<select name ="state_province" id ="state_province" value="<?php echo $login_session=$row['state_province']; ?>"></select>
-	<script language="javascript">print_country("country");</script>	
-<br><br>
+<b>Update State:*</b> <select name ="state_province" id ="state_province" value="<?php echo $login_session=$row['state_province']; ?>"></select>
+	<script language="javascript">print_country("country");</script><br><br>
 
-City:<input type="text" name ="city" value="<?php echo $login_session=$row['state_province']; ?>" /><br><br>
+<b>Post Code:*</b> <input type="text" name ="post_code" value="<?php echo $login_session=$row['post_code']; ?>" required/><br><br>
 
-Post Code:<input type="text" name ="post_code" value="<?php echo $login_session=$row['post_code']; ?>" /><br><br>
+<b>Contact no:*</b> <input type="tel" name ="phone_number" value="<?php echo $login_session=$row['phone_number']; ?>"><br><br>
 
-Contact no:<input type="tel" name ="phone_number" value="<?php echo $login_session=$row['phone_number']; ?>"><br><br>
+<b>Job Positions Availability:*</b><input type="number" name="job_qty" value="<?php echo $login_session=$row['job_qty']; ?>"><br><br>
 
-Job Positions Availability:<input type="number" name="job_qty" value="<?php echo $login_session=$row['job_qty']; ?>"><br><br>
+<b>Update Date Register for Job Posted:*</b><input type="date" name="date_register"><br><br>
 
-Update Date Register for Job Posted:<input type="date" name="date_register"><br><br>
 
- <div class="style_form">
-<input name="submit" type="submit" value="Update" id="submit_btn" />
-</div>
+<input type="submit" name="submit" value="Update">
 </form>
-</div>
-</div>
+
+</p>
+<form action="welcomejp.php" method="POST">
+		
+		<input type="submit" name="submit" value="Home Page">
+		</form>
+		</div>
+	</div>
+	
+		<div id="footnote">
+			<div class="clearfix">
+				<div class="connect">
+					<a href="https://www.facebook.com/" class="facebook"></a><a href="https://twitter.com/" class="twitter"></a><a href="https://plus.google.com/" class="googleplus"></a>
+				</div>
+				<p>
+					Rohit. Patil Job Site
+				</p>
+			</div>
+		</div>
+	</div>
 </body>
 </html>

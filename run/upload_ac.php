@@ -1,11 +1,68 @@
+
+
+<!DOCTYPE HTML>
 <html>
 <head>
-<title>Rohit Patil Job Site</title>
-<link rel="stylesheet" type="text/css" href="style.css" />
+	<meta charset="UTF-8">
+	<title>Rohit Patil Job Site</title>
+	<link rel="stylesheet" href="css/style.css" type="text/css">
 </head>
 <body>
-<div class="register-form">
-<?php
+	<div id="header">
+		<div class="clearfix">
+			<div class="logo">
+				<a href="index.html"><img src="images/logotop.png" alt="LOGO" height="52" width="362"></a>
+			</div>
+			<ul class="navigation">
+				<li class="active">
+					<a href="index.html">Home</a>
+				</li>
+				<li>
+					<a href="about.html">My Details</a>
+					<div>
+						<a href="http://localhost/MainProject/run/jsdetail.php">MY ACCOUNT DETAILS</a>
+						<a href="http://localhost/MainProject/run/forgotjs.php">UPDATE PASSWORD</a>
+					</div>
+				</li>
+				<li>
+					<a href="practices.html">Resume & Applications</a>
+					<div>
+						<a href="http://localhost/MainProject/run/resumejs.php">REGISTER CV/RESUME</a>
+						<a href="#">MY SAVED RESUME</a>
+					</div>
+				</li>
+				<li>
+					<a href="lawyers.html">Job Search</a>
+					<div>
+						<a href="http://localhost/MainProject/run/jobsearchjs.php">JOB SEARCH BY KEYWORDS</a>
+						<a href="http://localhost/MainProject/run/jobsearchsector.php">JOB SEARCH BY CATEGORY</a>
+					</div>
+				</li>
+				<li>
+					<a href="news.html">Career Advice</a>
+					<div>
+						<a href="singlepost.html">News Single Post</a>
+					</div>
+				</li>
+				<li>
+					<a href="contact.html">Services</a>
+				</li>
+				<li>
+					<a href="logoutjs.php">Log Out</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div id="contents">
+		<div class="clearfix">
+		<h1>Upload Your Resume</h3>
+			<div class="frame2">
+				<div class="box">
+					<img src="images/luck.jpg" alt="Img" height="298" width="924">
+				</div>
+			</div>
+			<p>
+				<?php
 include('lockjs.php');
 //set where you want to store files
 //in this example we keep file in folder upload 
@@ -19,19 +76,19 @@ if($ufile !='none')
 {
 if(copy($_FILES['ufile']['tmp_name'], $path))
 {
-echo "<h3>"."Resume Uploaded Successfully"."</h3>"."<BR/>"; 
-
+echo "<h2>"."Resume Uploaded Successfully"."</h2>"."<BR/>"; 
 //$HTTP_POST_FILES['ufile']['name'] = file name
 //$HTTP_POST_FILES['ufile']['size'] = file size
 //$HTTP_POST_FILES['ufile']['type'] = type of file
 
-echo "<b>"."File Name:"."</b>".$_FILES['ufile']['name']."<BR/>"; 
-echo "<b>"."File Size:"."</b>".$_FILES['ufile']['size']."<BR/>"; 
-echo "<b>"."File Type:"."</b>".$_FILES['ufile']['type']."<BR/>"; 
+echo "<p>"."File Name:".$_FILES['ufile']['name']."<BR/>"."</p>"; 
+echo "<p>"."File Size:".$_FILES['ufile']['size']."<BR/>"."</p>"; 
+echo "<p>"."File Type:".$_FILES['ufile']['type']."<BR/>"."</p>"; 
+
 //echo "<img src=\"$path\" width=\"150\" height=\"150\">";
 echo "<a href=>$ufile"."</a>";
-echo "<br>";
-echo "<strong>"."Copy The Above Link in the Address bar to Download the file"."</strong>";
+echo "<BR/>";
+echo "<h2>"."Copy The Above Link in the Address bar to Download the file"."</h2>";
 //echo "$ufile";
 }
 
@@ -84,77 +141,28 @@ echo "Error";
 
 
 ?>
-
-<!--br><br>
-<form action="cvidpost.php" method="post">
-<b>Your Resume ID:</b> <input type="text" name="cv_id" 
-value="<?php 
-/*require('connect.php');
-$login_session=$row['id'];
-
-$ses_sql=mysql_query("select id from jobberland_cv_detail where fk_employee_id='$login_session'");
-
-//$row=mysql_fetch_array($ses_sql);
+			
 
 
-		while($row=mysql_fetch_array($ses_sql))
-	{
 
-$cvid=$row['id'];
-
-echo $id=$row['id'];
-}
-*/
-?>"  readonly /> 
-<br><br>
-
-<b>Job Industry Sector:</b><select name="category_id"> 
-<option selected>---Select Job Category---</option>
-<option value="1">Accounting and Auditing Services</option> 
-<option value="2">Advertising and PR Services </option>  
-<option value="3">Aerospace and Defence </option>  
-<option value="4">Agriculture/Forestry/Fishing </option>  
-<option value="5">Architectural and Design Services</option>
-<option value="6">Automotive and Parts Mfg</option>  
-<option value="7">Automotive Sales and Repair Services </option>  
-<option value="8">Banking and Consumer Lending </option>  
-<option value="9">Biotechnology/Pharmaceuticals </option>  
-<option value="10"> Broadcasting, Music, and Film</option>  
-<option value="11">Business Services - Other </option>  
-<option value="12"> Chemicals/Petro-Chemicals</option>  
-<option value="13"> Clothing and Textile Manufacturing</option>  
-<option value="14"> Computer Hardware</option>  
-<option value="15"> Computer Software</option>  
-<option value="16">Computer/IT Services </option>  
-<option value="17">Construction - Industrial Facilities and Infrastructure </option>  
-<option value="18"> Construction - Residential & Commercial/Office</option>  
-<option value="19"> Education</option>  
-<option value="20"> Electronics, Components, and Semiconductor Mfg</option>  
-<option value="21"> Energy and Utilities</option>  
-<option value="22">Engineering Services </option>  
-<option value="23">Entertainment Venues and Theatres </option>  
-<option value="24">Financial Services </option>  
-<option value="25">Food and Beverage Production </option>  
-<option value="26">Government and Public Sector </option>  
-<option value="27">Healthcare Services </option>  
-<option value="28"> Hotels and Lodging</option>  		
-<option value="29">Insurance  </option>  	
-<option value="30">Internet Services </option>  	
-</select>
-<br>	
-		<br>
+</p>
+<form action="welcomejs.php" method="POST">
 		
-<input type="submit" value="submit">
-</form-->		
-
-
-
-
-<b><p align="right"><a href="logoutjs.php">Sign Out</a></p></b>
+		<input type="submit" name="submit" value="Home Page">
+		</form>
+		</div>
+	</div>
+	
+		<div id="footnote">
+			<div class="clearfix">
+				<div class="connect">
+					<a href="https://www.facebook.com/" class="facebook"></a><a href="https://twitter.com/" class="twitter"></a><a href="https://plus.google.com/" class="googleplus"></a>
+				</div>
+				<p>
+					Rohit. Patil Job Site
+				</p>
+			</div>
+		</div>
+	</div>
 </body>
-</div>
 </html>
-
-
-
-

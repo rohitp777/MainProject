@@ -84,14 +84,19 @@ $mail->SingleTo = true;
 $mail->From = "rockyrox7777@gmail.com";
 $mail->FromName = "Rohit Patil";
 	
-$mail->addAddress("rockyrox7777@gmail.com","User 2");
+$mail->addAddress("rockyrox7777@gmail.com","User 1");
+$mail->addAddress("$email","User 2");
 	// send e-mail to ...
 	//$to=$email;
 
-$mail->Subject = "Your confirmation link here";
-$mail->Body = "Your Comfirmation link \r\n";
-$mail->Body = "Click on this link to activate your account \r\n";
-$mail->Body = "http://localhost/MainProject/run/confirm.php?passkey=$confirm_code";
+$mail->Subject = "Your Job2Dream account activation confirmation link here";
+//$mail->Body = "Your Comfirmation link \r\n";
+//$mail->Body = "Click on this link to activate your account \r\n";
+//$mail->Body = "http://localhost/MainProject/run/confirm.php?passkey=$confirm_code";
+
+$mail->Body = "<b>"."Click below on Confirmation Link to activate you account"."</b>"."<br>"."http://localhost/MainProject/run/confirm.php?passkey=$confirm_code";
+//$mail->Body = "Click on this link to activate your account \r\n";
+//$mail->Body = "http://localhost/MainProject/run/confirm.php?passkey=$confirm_code";
 
 // send email
 //$mail->mail($mail->addAddress,$mail->Subject,$mail->Body,$mail->From);
@@ -148,7 +153,7 @@ if ($_POST ['email_address']="") {
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <title>Rohit Patil Job Site</title>
-<link rel="stylesheet" type="text/css" href="style.css" />
+<link rel="stylesheet" type="text/css" href="css/styleregform.css" />
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.0/jquery.min.js" type="text/javascript"></script>
 <script type="text/javascript"> <!--- include the our jquery file  --> 
 
@@ -252,51 +257,102 @@ return false;
 });
 
 </script>
+<style type="text/css">
+body {
+	font-family:Arial, Helvetica, sans-serif
+}
+#availability_status {
+	font-size:11px;
+	margin-left:10px;
+}
+#email_status {
+	font-size:11px;
+	margin-left:10px;
+}
+input.form_element {
+	width: 221px;
+	background: transparent url('bg.jpg') no-repeat;
+	color : #747862;
+	height:20px;
+	border:0;
+	padding:4px 8px;
+	margin-bottom:0px;
+}
+label {
+	width: 125px;
+	float: left;
+	text-align: left;
+	margin-right: 0.5em;
+	display: block;
+}
+.style_form {
+	margin:3px;
+}
+#content {
+	margin-left: auto;
+	margin-right: auto;
+	width: 600px;
+	margin-top:200px;
+}
+#submit_btn {
+	margin-left:133px;
+	height:30px;
+	width: 221px;
+}
+</style>
 
 </head>
 <body>
+<form action="actlink.php" method="POST" id="tempjs" class="register">
 <!-- Form for logging in the users -->
-<div id="content">
+<!--div id="content"-->
 
-<div class="register-form">
+<!--div class="register"-->
 <?php
 if(isset($msg) & !empty($msg)){
 		echo $msg;
 	}
  ?> 
-<h1>Register</h1>
-<form action="actlink.php" method="POST" id="tempjs">
- 
- <div class="style_form">
-Email:<input type="email" name="email_address" id="email_address" class="form_element"/><br>
+<h1>Job Seeker Registration</h1>
+  <fieldset class="row1">
+   <legend>Account Details</legend>
+<p> 
+ <label>Email*</label><input type="text" name="email_address" id="email_address" required/><br>
 <span id="email_status"></span>
-</div>
-
-<div class="style_form">
-Username:<input type="text" name="username" id="username" class="form_element"/><br>
-<span id="availability_status"></span> </div>
-
-Password:<input type="password" name ="passwd"><br>
-
-Title:<Select name="title">
+</p>
+<p>
+ <label>Username* </label><input type="text" name="username" id="username" required /><br>
+<span id="availability_status"></span> 
+</p>
+<p>
+ <label>Password* </label><input type="password" name ="passwd" id="passwd" required/><br>
+</p>
+<p>
+ <label class="obinfo">* obligatory fields</label>
+ </p>
+ </fieldset>
+ <fieldset class="row2">
+ <legend>Personal Details</legend> 
+ <p>
+ <label>Title* </label><Select name="title">
 <option selected>Select
 <option>Mr.
 <option>Mrs.
 <option>Miss
 <option>Ms.
-<option>Dr.</select><br>
-
-<div class="style_form">
-First Name:<input type="text" name="fname" class="form_element"/ ><br>
-</div>
-
-<div class="style_form">
-Last Name:<input type="text" name="sname" class="form_element"/><br>
-</div>
-
-Address:<input type="text" name="address"><br>
-
-Address2:<input type="text" name="address2"><br>
+<option>Dr.</select>
+<p>
+ <label>First Name* </label><input type="text" name="fname" required/>
+</p>
+<p> 
+ <label>Last Name* </label><input type="text" name="sname" required/>
+</p>
+<p>
+ <label>Address* </label><input type="text" name="address" required/>
+</p>
+<p>
+ <label>Address2* </label><input type="text" name="address2" required/>
+</p>
 <!--
 Country:<select name="country"> 
 <option value="" selected="selected">Select Country</option> 
@@ -662,22 +718,30 @@ State/Province:<select name="state_province" size="1">
 </select-->
 
 <script type="text/javascript" src="countries.js"></script>
-		
-Country:<select onchange="print_state('state_province',this.selectedIndex);" id="country" name ="country"></select>
-
-<br>
-State:<select name ="state_province" id ="state_province"></select>
+<p>		
+ <label>Country* </label><select onchange="print_state('state_province',this.selectedIndex);" id="country" name ="country"></select>
+</p>
+<p>
+ <label>State* </label><select name ="state_province" id ="state_province"></select>
 	<script language="javascript">print_country("country");</script>	
-<br>
-
-City:<input type="text" name ="city"><br>
-
-Post Code:<input type="text" name ="post_code"><br>
-
-Contact no:<input type="tel" name ="phone_number"><br>
-	
-Applying Positions:<br>
-<input type="radio" name="fk_career_degree_id" value="1" checked>None of these<br>	
+</p>
+<p>	
+ <label>City* </label><input type="text" name ="city" required/>
+</p>
+<p>
+ <label>Post Code* </label><input type="text" name ="post_code" required/>
+</p>
+<p>
+ <label>Contact no* </label><input type="text" name ="phone_number" required/>
+</p>
+</fieldset>
+<fieldset class="row3">
+<legend>Further Information</legend>	
+<p>
+ <label>Applying Positions*</label>
+ </p>
+ <br>
+<input type="radio" name="fk_career_degree_id" value="1" checked>None of these<br>
 <input type="radio" name="fk_career_degree_id" value="2">Student (Higher education/Graduate)<br>
 <input type="radio" name="fk_career_degree_id" value="3">Entry Level<br>
 <input type="radio" name="fk_career_degree_id" value="4">Experienced (Non-Manager)<br>
@@ -685,18 +749,24 @@ Applying Positions:<br>
 <input type="radio" name="fk_career_degree_id" value="6">Executive (Director, Department Head)<br>
 <input type="radio" name="fk_career_degree_id" value="7">Senior Executive (Chairman, MD, CEO)<br>
 
-Date Register for Positions:<input type="date" name="date_register"><br>
+<p>
+<label>Date Register for Positions*</label><input type="date" name="date_register">
+</p>
+<p>
+<label>Email-ID (In case of password recovery)*</label><input type="text" name ="actkey">
+</p>
+</fieldset>
+<p></p>
+<div>
+<input name="submit" type="submit" value="Complete Registration &raquo;" id="submit_btn" class="button" />
 
-Email-ID (In case of password recovery):<input type="text" name ="actkey"><br>
-
- <div class="style_form">
-<input name="submit" type="submit" value="Complete Registration" id="submit_btn" />
+</form>
+<form action="http://localhost/MainProject/run/loginseeker.html" method="POST">
+<p>
+<input class="button" type="submit" value="Continue to Sign-in &raquo;" id="submit_btn" />
+</p>
 </div>
 </form>
-<form action="Login.html" method="POST">
-<input type="submit" value="Continue to Sign-in">
-</form>
-</div>
 </body>
 </html>
 

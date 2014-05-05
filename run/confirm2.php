@@ -1,4 +1,10 @@
 <?php
+echo "<html>";
+echo "<head>";
+echo "<title>Rohit Patil Job Site</title>";
+echo "<link rel='stylesheet' type='text/css' href='styleact.css' />";
+echo "</head>";
+echo "<body>";
 
 require('connect.php');
 
@@ -66,7 +72,7 @@ else{
 	}
 	// if successfully moved data from table"temp_members_db" to table "registered_members" displays message "Your account has been activated" and don't forget to delete confirmation code from table "temp_members_db"
 	if($result2==mysql_query($sql2)){
-		echo "Your account has been activated";
+		echo  "<b>"."Your account has been activated"."</b>";
 		// Delete information of this user from table "temp_members_db" that has this passkey 
 		//$sql3="DELETE FROM $tbl_name1 WHERE confirm_code = '$passkey'";
 		//$result3=mysql_query($sql3);
@@ -75,5 +81,7 @@ else{
 }
 
 
-
+echo "</div>";
+echo "</body>";
+echo "</html>";
 ?>

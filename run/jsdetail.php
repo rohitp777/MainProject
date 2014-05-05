@@ -56,28 +56,79 @@ $result1=mysql_query($sql1);
 
 ?>
 
-<DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<title>Rohit Patil Job Site</title>
-<link rel="stylesheet" type="text/css" href="style.css" />
-<h3><strong> Your Account Details</strong></h3>
+	<meta charset="UTF-8">
+	<title>Rohit Patil Job Site</title>
+	<link rel="stylesheet" href="css/style.css" type="text/css">
 </head>
 <body>
-<div id="content">
-<div class="register-form">
-<b>Name:</b> <?php echo $title=$rows['title']; echo $fname=$rows['fname']; echo "."; echo $sname=$rows['sname']; ?><br><br>
+	<div id="header">
+		<div class="clearfix">
+			<div class="logo">
+				<a href="index.html"><img src="images/logotop.png" alt="LOGO" height="52" width="362"></a>
+			</div>
+			<ul class="navigation">
+				<li class="active">
+					<a href="index.html">Home</a>
+				</li>
+				<li>
+					<a href="about.html">My Details</a>
+					<div>
+						<a href="http://localhost/MainProject/run/jsdetail.php">MY ACCOUNT DETAILS</a>
+						<a href="http://localhost/MainProject/run/forgotjs.php">UPDATE PASSWORD</a>
+					</div>
+				</li>
+				<li>
+					<a href="practices.html">Resume & Applications</a>
+					<div>
+						<a href="http://localhost/MainProject/run/resumejs.php">REGISTER CV/RESUME</a>
+						<a href="#">MY SAVED RESUME</a>
+					</div>
+				</li>
+				<li>
+					<a href="lawyers.html">Job Search</a>
+					<div>
+						<a href="http://localhost/MainProject/run/jobsearchjs.php">JOB SEARCH BY KEYWORDS</a>
+						<a href="http://localhost/MainProject/run/jobsearchsector.php">JOB SEARCH BY CATEGORY</a>
+					</div>
+				</li>
+				<li>
+					<a href="news.html">Career Advice</a>
+					<div>
+						<a href="singlepost.html">News Single Post</a>
+					</div>
+				</li>
+				<li>
+					<a href="contact.html">Services</a>
+				</li>
+				<li>
+					<a href="logoutjs.php">Log Out</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div id="contents">
+		<div class="clearfix">
+			<h1>Your Account Details </h1>
+			<div class="frame2">
+				<div class="box">
+					<img src="images/thumb-up.jpg" alt="Img" height="298" width="924">
+				</div>
+			</div>
+			<p>
+			<b>Name:</b> <?php echo $title=$rows['title']; echo $fname=$rows['fname']; echo "."; echo $sname=$rows['sname']; ?><br><br>
 
 <b>Email Address:</b> <?php echo $email = $rows['email_address'];?><br><br>
 
 <b>Your Account User-Name:</b> <?php echo $username = $rows['username'];?><br><br>
 
-<b>Address:</b> <?php echo $address = $rows['address']; echo "<br>"; echo "&emsp;&emsp;&emsp;&emsp;&nbsp;"; echo $address2 = $rows['address2']; ?><br>
+<b>Address:</b> <?php echo $address = $rows['address']; echo "<br>"; echo "&emsp;&emsp;&emsp;&emsp;&nbsp;"; echo $address2 = $rows['address2']; ?><br><br>
 
-<b>City:</b> <?php echo $city = $rows['city'];?><br>
+<b>City:</b> <?php echo $city = $rows['city'];?><br><br>
 
-<b>State:</b> <?php echo $stateprovince = $rows['state_province'];?><br>
+<b>State:</b> <?php echo $stateprovince = $rows['state_province'];?><br><br>
 
 <b>Country:</b> <?php echo $country = $rows['country'];?><br><br>
 
@@ -86,14 +137,30 @@ $result1=mysql_query($sql1);
 <b>Applied Position:</b> <?php echo $degree=$rows['career_name'];?><br><br>
 
 <b>Registration Date:</b> <?php echo $date = $rows['date_register'];?><br><br>
-
 <form action="updatejs.php" method="POST">
 <input type="submit" value="Update">
 </form>
-
-<b><span class="red">*</span>Use (Ctrl+P) Command on your keyboard to Save as .pdf or to Print this Page for You Information</b>
-
-</div>
-</div>
+<p>
+Use (Ctrl+P) Command on your keyboard to Save as .pdf or to Print this Page for You Information</b>
+</p>
+</p>
+<form action="welcomejs.php" method="POST">
+		
+		<input type="submit" name="submit" value="Home Page">
+		</form>
+		</div>
+	</div>
+	
+		<div id="footnote">
+			<div class="clearfix">
+				<div class="connect">
+					<a href="https://www.facebook.com/" class="facebook"></a><a href="https://twitter.com/" class="twitter"></a><a href="https://plus.google.com/" class="googleplus"></a>
+				</div>
+				<p>
+					Rohit. Patil Job Site
+				</p>
+			</div>
+		</div>
+	</div>
 </body>
 </html>

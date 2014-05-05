@@ -60,37 +60,84 @@ $result1=mysql_query($sql1);
 
 ?>
 
-<DOCTYPE html>
+
+
+
+<!DOCTYPE HTML>
+<!DOCTYPE HTML>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<title>Rohit Patil Job Site</title>
-<link rel="stylesheet" type="text/css" href="style.css" />
-<h3><strong> Your Account Details</strong></h3>
+	<meta charset="UTF-8">
+	<title>Rohit Patil Job Site</title>
+	<link rel="stylesheet" href="css/style.css" type="text/css">
 </head>
 <body>
-<div id="content">
-<div class="register-form">
-
-<b>Company Name:</b> <?php echo $companyname=$rows['company_name'];?><br><br>
+	<div id="header">
+		<div class="clearfix">
+			<div class="logo">
+				<a href="index.html"><img src="images/logotop2.png" alt="LOGO" height="52" width="362"></a>
+			</div>
+			<marquee><b>Welcome,<?php echo $login_session=$row['title']. "&nbsp;" . $login_session=$row['fname'];
+echo ". ";
+echo $login_session=$row['sname']. "&nbsp;" . "of" . "&nbsp;" . $login_session=$row['company_name']. "&nbsp;" . "Company";
+  ?></b></marquee>
+			<ul class="navigation">
+				<li class="active">
+					<a href="http://localhost/MainProject/run/welcomejp.php">Home</a>
+				</li>
+				<li>
+					<a href="#">My Details</a>
+					<div>
+						<a href="http://localhost/MainProject/run/jpdetail.php">MY ACCOUNT DETAILS</a>
+						<a href="http://localhost/MainProject/run/forgotjp.php">UPDATE PASSWORD</a>
+					</div>
+				</li>
+				<li>
+					<a href="#">My Jobs</a>
+					<div>
+						<a href="http://localhost/MainProject/run/jobpost.php">ADVERTISE A JOB</a>
+						<a href="http://localhost/MainProject/run/jobadvertisedetail.php">VIEW ADVERTISED JOBS</a>
+							<a href="http://localhost/MainProject/run/viewjobapply.php">VIEW JOB APPLICATIONS</a>
+					</div>
+				</li>
+				<li>
+					<a href="http://localhost/MainProject/run/searchcvjp.php">Search For Resume's</a>
+				</li>
+				<li>
+					<a href="http://localhost/MainProject/run/recruiter.php">Recruiter Resources</a>
+				</li>
+				<li>
+					<a href="logoutjp.php">Log Out</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div id="contents">
+		<div class="clearfix">
+			<h1>Your Account Details </h1>
+			<div class="frame2">
+				<div class="box">
+					<img src="images/thumb-up.jpg" alt="Img" height="298" width="924">
+				</div>
+			</div>
+			<p>
+			<b>Company Name:</b> <?php echo $companyname=$rows['company_name']; ?><br><br>
 
 <b>Contact Name:</b> <?php echo $contactname=$rows['contact_name'];?><br><br>
 
+<b>Your Account User-Name:</b> <?php echo $username = $rows['username'];?><br><br>
+
 <b>Name:</b> <?php echo $title=$rows['title']; echo $fname=$rows['fname']; echo "."; echo $sname=$rows['sname']; ?><br><br>
-
-<b>Website Link:</b> <?php echo $site=$rows['site_link'];?><br><br>
-
-<b>Company Details:</b> <?php echo $companydesc=$rows['company_desc'];?><br><br>
 
 <b>Email Address:</b> <?php echo $email = $rows['email_address'];?><br><br>
 
 <b>Your Account User-Name:</b> <?php echo $username = $rows['username'];?><br><br>
 
-<b>Address:</b> <?php echo $address = $rows['address']; echo "<br>"; echo "&emsp;&emsp;&emsp;&emsp;&nbsp;"; echo $address2 = $rows['address2']; ?><br>
+<b>Address:</b> <?php echo $address = $rows['address']; echo "<br>"; echo "&emsp;&emsp;&emsp;&emsp;&nbsp;"; echo $address2 = $rows['address2']; ?><br><br>
 
-<b>City:</b> <?php echo $city = $rows['city'];?><br>
+<b>City:</b> <?php echo $city = $rows['city'];?><br><br>
 
-<b>State:</b> <?php echo $stateprovince = $rows['state_province'];?><br>
+<b>State:</b> <?php echo $stateprovince = $rows['state_province'];?><br><br>
 
 <b>Country:</b> <?php echo $country = $rows['country'];?><br><br>
 
@@ -99,14 +146,30 @@ $result1=mysql_query($sql1);
 <b>Jobs Posted:</b> <?php echo $jobqty=$rows['job_qty'];?><br><br>
 
 <b>Last Job Posted Date:</b> <?php echo $date = $rows['date_register'];?><br><br>
-
 <form action="updatejp.php" method="POST">
 <input type="submit" value="Update">
 </form>
-
-<b><span class="red">*</span>Use (Ctrl+P) Command on your keyboard to Save as .pdf or to Print this Page for You Information</b>
-
-</div>
-</div>
+<p>
+Use (Ctrl+P) Command on your keyboard to Save as .pdf or to Print this Page for You Information</b>
+</p>
+</p>
+<form action="welcomejp.php" method="POST">
+		
+		<input type="submit" name="submit" value="Home Page">
+		</form>
+		</div>
+	</div>
+	
+		<div id="footnote">
+			<div class="clearfix">
+				<div class="connect">
+					<a href="https://www.facebook.com/" class="facebook"></a><a href="https://twitter.com/" class="twitter"></a><a href="https://plus.google.com/" class="googleplus"></a>
+				</div>
+				<p>
+					Rohit. Patil Job Site
+				</p>
+			</div>
+		</div>
+	</div>
 </body>
 </html>

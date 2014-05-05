@@ -1,15 +1,69 @@
-<!DOCTYPE html>
-<html lang="en">
+
+
+
+<!DOCTYPE HTML>
+<html>
 <head>
-<meta charset="utf-8">
-<title>Job Search for Job Seekers</title>
-<link rel="stylesheet" type="text/css" href="style.css" />
+	<meta charset="UTF-8">
+	<title>Rohit Patil Job Site</title>
+	<link rel="stylesheet" href="css/style.css" type="text/css">
 </head>
 <body>
-<div id="content">
-	<div class="register-form">
-	
-<?php
+	<div id="header">
+		<div class="clearfix">
+			<div class="logo">
+				<a href="index.html"><img src="images/logotop.png" alt="LOGO" height="52" width="362"></a>
+			</div>
+			<ul class="navigation">
+				<li class="active">
+					<a href="index.html">Home</a>
+				</li>
+				<li>
+					<a href="about.html">My Details</a>
+					<div>
+						<a href="http://localhost/MainProject/run/jsdetail.php">MY ACCOUNT DETAILS</a>
+						<a href="http://localhost/MainProject/run/forgotjs.php">UPDATE PASSWORD</a>
+					</div>
+				</li>
+				<li>
+					<a href="practices.html">Resume & Applications</a>
+					<div>
+						<a href="http://localhost/MainProject/run/resumejs.php">REGISTER CV/RESUME</a>
+						<a href="#">MY SAVED RESUME</a>
+					</div>
+				</li>
+				<li>
+					<a href="lawyers.html">Job Search</a>
+					<div>
+						<a href="http://localhost/MainProject/run/jobsearchjs.php">JOB SEARCH BY KEYWORDS</a>
+						<a href="http://localhost/MainProject/run/jobsearchsector.php">JOB SEARCH BY CATEGORY</a>
+					</div>
+				</li>
+				<li>
+					<a href="news.html">Career Advice</a>
+					<div>
+						<a href="singlepost.html">News Single Post</a>
+					</div>
+				</li>
+				<li>
+					<a href="contact.html">Services</a>
+				</li>
+				<li>
+					<a href="logoutjs.php">Log Out</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div id="contents">
+		<div class="clearfix">
+			<h1>Search Result</h3>
+			<div class="frame2">
+				<div class="box">
+					<img src="images/activation.jpg" alt="Img" height="298" width="924">
+				</div>
+			</div>
+			
+				<?php
 
 require('connect.php');
 include('lockjs.php');
@@ -26,7 +80,7 @@ $construct = NULL;
 if(strlen($search)<=1)
 echo "Search term too short";
 else{
-echo "You searched for <b>$search</b> <hr size='1'></br>";
+echo "<h2>"."Your searched for <b>$search</b>!!!"."</h2>"." <hr size='1'></br>";
 //mysql_connect("mysql_host_name","mysql_username","mysql_password");
 //mysql_select_db("database_name");
     
@@ -55,7 +109,7 @@ then use general keyword like 'create' 'website'</br>2. Try different words with
 else
 { 
   
-echo "$foundnum results found !<p>";
+echo "<p>"."$foundnum results found !!!</p>";
   
 $per_page = 5;
 if(isset($_GET['start']))
@@ -181,9 +235,19 @@ echo "</center>";
 } 
 ?>
 
-<b><p align="right"><a href="logoutjs.php">Sign Out</a></p></b>
-<!--/fieldset-->
-</div>
-</div>
+		</div>
+	</div>
+	
+		<div id="footnote">
+			<div class="clearfix">
+				<div class="connect">
+					<a href="https://www.facebook.com/" class="facebook"></a><a href="https://twitter.com/" class="twitter"></a><a href="https://plus.google.com/" class="googleplus"></a>
+				</div>
+				<p>
+					Rohit. Patil Job Site
+				</p>
+			</div>
+		</div>
+	</div>
 </body>
 </html>

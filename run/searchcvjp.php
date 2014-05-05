@@ -1,14 +1,61 @@
-<!DOCTYPE html>
-<html lang="en">
+
+
+<!DOCTYPE HTML>
+<html>
 <head>
-<meta charset="utf-8">
-<title>Profiles for Job Providers</title>
-<link rel="stylesheet" type="text/css" href="style.css" />
+	<meta charset="UTF-8">
+	<title>Rohit Patil Job Site</title>
+	<link rel="stylesheet" href="css/style.css" type="text/css">
 </head>
 <body>
-<div id="content">
-	<div class="register-form">
-<?php
+	<div id="header">
+		<div class="clearfix">
+			<div class="logo">
+				<a href="index.html"><img src="images/logotop2.png" alt="LOGO" height="52" width="362"></a>
+			</div>
+			
+			<ul class="navigation">
+				<li class="active">
+					<a href="http://localhost/MainProject/run/welcomejp.php">Home</a>
+				</li>
+				<li>
+					<a href="#">My Details</a>
+					<div>
+						<a href="http://localhost/MainProject/run/jpdetail.php">MY ACCOUNT DETAILS</a>
+						<a href="http://localhost/MainProject/run/forgotjp.php">UPDATE PASSWORD</a>
+					</div>
+				</li>
+				<li>
+					<a href="#">My Jobs</a>
+					<div>
+						<a href="http://localhost/MainProject/run/jobpost.php">ADVERTISE A JOB</a>
+						<a href="http://localhost/MainProject/run/jobadvertisedetail.php">VIEW ADVERTISED JOBS</a>
+							<a href="http://localhost/MainProject/run/viewjobapply.php">VIEW JOB APPLICATIONS</a>
+					</div>
+				</li>
+				<li>
+					<a href="http://localhost/MainProject/run/searchcvjp.php">Search For Resume's</a>
+				</li>
+				<li>
+					<a href="#">Recruiter Resources</a>
+				</li>
+				<li>
+					<a href="logoutjp.php">Log Out</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div id="contents">
+		<div class="clearfix">
+
+			<h1>Job Applicants for Your Posted Job</h3>
+			<div class="frame2">
+				<div class="box">
+					<img src="images/providerhome2.jpg" alt="Img" height="298" width="924">
+				</div>
+			</div>
+			
+			<?php
 require('connect.php');
 
 include('lockjp.php');
@@ -215,7 +262,27 @@ $data[] = $row;
 
 ?>
 
-</div>
-</div>
+
+
+<form action="welcomejp.php" method="POST">
+		
+		<input type="submit" name="submit" value="Home Page">
+		</form>
+
+			
+		</div>
+	</div>
+	
+		<div id="footnote">
+			<div class="clearfix">
+				<div class="connect">
+					<a href="https://www.facebook.com/" class="facebook"></a><a href="https://twitter.com/" class="twitter"></a><a href="https://plus.google.com/" class="googleplus"></a>
+				</div>
+				<p>
+					Rohit. Patil Job Site
+				</p>
+			</div>
+		</div>
+	</div>
 </body>
 </html>

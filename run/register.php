@@ -1,7 +1,8 @@
 <html>
 <head>
 <title>Rohit Patil Job Site</title>
-<link rel="stylesheet" type="text/css" href="style.css" />
+<link rel="stylesheet" type="text/css" href="stylereg.css" />
+
 </head>
 <body>
 <div class="register-form">
@@ -9,11 +10,12 @@
 <h3>Register as Job Seeker</h3>
 <ul>
 <li>Submitting Resumes under vacancy</li>
-<li>Resume Updating</li>
+<li>Resume Uploading</li>
 <li>Search for Job according to skill set</li>
-<li>Request E-mail alerts for jobs</li>
+<li>E-mail notification for jobs</li>
 </ul>
-<input type="submit" value="Job Seeker Registration here">
+<input type="image" src="images/jsreg.jpeg" alt="submit" value="Job Seeker Registration here">
+
 </form>
 <br><br><br><br><br>
 
@@ -25,7 +27,7 @@
 <li>Search for Eligible Candidate</li>
 <li>Checking Job Status & Alert Job Seeker</li>
 </ul>
-<input type="submit" value="Job Provider Registration here">
+<input type="image" src="images/jpreg.jpeg" alt="submit" value="Job Provider Registration here">
 </form>
 </div>
 </body>

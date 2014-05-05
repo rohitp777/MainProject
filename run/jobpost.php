@@ -90,7 +90,7 @@
 	 
 	 if ($result2 = mysql_query($sql3))
 	 {
-	 echo "Entered Success";
+	 $msg= "Job Posted Successfully Continue to Post more details related to this Job ";
 	 }
 	 
 	  else
@@ -118,30 +118,82 @@
 ?>
 
 
-<!DOCTYPE html>
-<html lang="en">
+
+
+<!DOCTYPE HTML>
+<html>
 <head>
-<meta charset="utf-8">
-<title>My Job Posts</title>
-<!--link rel="stylesheet" href="css/screen.css" /-->
-<link rel="stylesheet" type="text/css" href="style.css" />
-
-
-	<div id="content">
-	<div class="register-form">
-	<h3><span class="red">*</span>For Posting New Job by this Profile Log In again</h3>
-
-	<form action="jobpost.php" method="POST">
-		
-			<label for="fk_employer_id">Job Poster Id Number: </label>
-			<input  name="fk_employer_id" type="text" value="<?php echo $login_session=$row['id'];?>" readonly />
-		<br>
-		<br>
-			<label for="job_ref">Reference Name:</label>
-			<input name="job_ref" type="text" value="<?php echo $login_session=$row['contact_name'];?>" />
-		<br><br>
-
-Job Industry Sector:<select name="var_name"> 
+	<meta charset="UTF-8">
+	<title>Rohit Patil Job Site</title>
+	<link rel="stylesheet" href="css/style.css" type="text/css">
+</head>
+<body>
+	<div id="header">
+		<div class="clearfix">
+			<div class="logo">
+				<a href="index.html"><img src="images/logotop2.png" alt="LOGO" height="52" width="362"></a>
+			</div>
+			<marquee><b>Welcome,<?php echo $login_session=$row['title']. "&nbsp;" . $login_session=$row['fname'];
+echo ". ";
+echo $login_session=$row['sname']. "&nbsp;" . "of" . "&nbsp;" . $login_session=$row['company_name']. "&nbsp;" . "Company";
+  ?></b></marquee>
+			<ul class="navigation">
+				<li class="active">
+					<a href="http://localhost/MainProject/run/welcomejp.php">Home</a>
+				</li>
+				<li>
+					<a href="#">My Details</a>
+					<div>
+						<a href="http://localhost/MainProject/run/jpdetail.php">MY ACCOUNT DETAILS</a>
+						<a href="http://localhost/MainProject/run/forgotjp.php">UPDATE PASSWORD</a>
+					</div>
+				</li>
+				<li>
+					<a href="#">My Jobs</a>
+					<div>
+						<a href="http://localhost/MainProject/run/jobpost.php">ADVERTISE A JOB</a>
+						<a href="http://localhost/MainProject/run/jobadvertisedetail.php">VIEW ADVERTISED JOBS</a>
+							<a href="http://localhost/MainProject/run/viewjobapply.php">VIEW JOB APPLICATIONS</a>
+					</div>
+				</li>
+				<li>
+					<a href="http://localhost/MainProject/run/searchcvjp.php">Search For Resume's</a>
+				</li>
+				<li>
+					<a href="http://localhost/MainProject/run/recruiter.php">Recruiter Resources</a>
+				</li>
+				<li>
+					<a href="logoutjp.php">Log Out</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div id="contents">
+		<div class="clearfix">
+<p>		
+<b>
+<?php
+if(isset($msg) & !empty($msg)){
+		echo $msg;
+	}
+ ?> 
+ </b>
+ </p>
+			<h1>Post Job</h3>
+		<form action="jobpost.php" method="POST">
+			<div class="frame2">
+				<div class="box">
+					<img src="images/update1.jpg" alt="Img" height="298" width="924">
+				</div>
+			</div>
+			<p>
+			<b>Job Poster Id Number:*</b><input  name="fk_employer_id" type="text" value="<?php echo $login_session=$row['id'];?>" readonly /><br><br>
+			
+			<b>Reference Name:*</b><input name="job_ref" type="text" value="<?php echo $login_session=$row['contact_name'];?>" /><br><br>
+			
+			<b>Contact Name:*</b><input type="text" name="contact_name" value="<?php echo $login_session=$row['contact_name']; ?>" required/><br><br>
+			
+<b>Job Industry Sector:*</b><select name="var_name"> 
 <option selected>---Select Job Category---</option>
 <option value="1">Accounting and Auditing Services</option> 
 <option value="2">Advertising and PR Services </option>  
@@ -176,34 +228,34 @@ Job Industry Sector:<select name="var_name">
 </select>
 <br>	
 		<br>
-			<label for="job_title">Job Title: </label><br>
-			<textarea name="job_title" ROWS="5" COLS="50"></textarea>
+			<b>Job Title:*</b><br>
+			<textarea name="job_title" ROWS="5" COLS="50" /required></textarea>
 		<br>
 		<br>
 		
-			<label for="job_description">Job Description: </label><br>
-			<textarea name="job_description" ROWS="5" COLS="50" /></textarea>
+			<b>Job Description:*</b><br>
+			<textarea name="job_description" ROWS="5" COLS="50" required/></textarea>
 		<br>
 		<br>
 		
-			<label for="job_postion">Job Position:</label>
-			<input  type="text" name="job_postion"/>
+			<b>Job Position:*</b>
+			<input  type="text" name="job_postion" required/>
 		<br>
 		<br>		
-			<label for="city">City:</label>
-			<input type="text" name ="city" value="<?php echo $login_session=$row['city'];?>"  />
+			<b>City:*</b>
+			<input type="text" name ="city" value="<?php echo $login_session=$row['city'];?>"  required/>
 		<br>
 		<br>
 		
 		<script type="text/javascript" src="countries.js"></script>
-		Country:<select onchange="print_state('state_province',this.selectedIndex);" id="country" name ="country"></select>
+		<b>Country:*</b><select onchange="print_state('state_province',this.selectedIndex);" id="country" name ="country"></select>
 
 		<br><br>
-		State:<select name ="state_province" id ="state_province"></select>
+		<b>State:*</b><select name ="state_province" id ="state_province"></select>
 		<script language="javascript">print_country("country");</script>	
 		<br><br>
 		
-			<label for="fk_education_id">Educational Qualification Required</label>
+			<b>Educational Qualification Required:*</b>
 			<br>
 			<input type="radio" name="fk_education_id" value="1" />Some Secondary School Coursework<br>	
 			<input type="radio" name="fk_education_id" value="2" />Secondary School or equivalent<br>
@@ -215,7 +267,7 @@ Job Industry Sector:<select name="var_name">
 			<input type="radio" name="fk_education_id" value="8" />Professional<br>	
 		<br>
 		
-			<label for="fk_career_id">Minimum Qualification:</label>
+			<b>Minimum Qualification:*</b>
 			<br>
 			<input type="radio" name="fk_career_id" value="1" />None of these<br>	
 			<input type="radio" name="fk_career_id" value="2" />Student (Higher education/Graduate)<br>
@@ -226,7 +278,7 @@ Job Industry Sector:<select name="var_name">
 			<input type="radio" name="fk_career_id" value="7" />Senior Executive (Chairman, MD, CEO)<br>		
 		<br>
 		
-		<label for="fk_experience_id">Experience Required:</label>
+		<b>Experience Required:*</b>
 			<br>
 			<input type="radio" name="fk_experience_id" value="1" />Less than 1 Year<br>	
 			<input type="radio" name="fk_experience_id" value="2" />1+ to 2 Years<br>
@@ -237,7 +289,7 @@ Job Industry Sector:<select name="var_name">
 			<input type="radio" name="fk_experience_id" value="7" />More than 15 Years<br>		
 		<br>
 	
-			<label for="job_salary">Salary Range (Annually):</label>
+			<b>Salary Range (Annually):*</b>
 			<select  name="job_salary">
 			<option selected value="">Select Salary</option>
 			<option value="30,000-50,000">30,000-50,000</option> 
@@ -247,89 +299,79 @@ Job Industry Sector:<select name="var_name">
 		<br>
 		<br>
 		
-			<label for="company_name">Company Name:</label>
-			<input name="company_name" type="text" value="<?php echo $login_session=$row['company_name'];?>" />
+			<b>Company Name:*</b>
+			<input name="company_name" type="text" value="<?php echo $login_session=$row['company_name'];?>" required/>
 		<br>
 		<br>
-			<label for="company_logo">Job Reference:</label>
-			<input name="company_logo" type="text" />
-		<br>
-		<br>
-		
-			<label for="contact_name">Contact Name:</label>
-			<input name="contact_name" type="text" value="<?php echo $login_session=$row['contact_name'];?>" />
+			<b>Job Reference:*</b>
+			<input name="company_logo" type="text" required/>
 		<br>
 		<br>
 		
-			<label for="contact_telephone">Contact Number:</label>
-			<input name="contact_telephone" type="tel" value="<?php echo $login_session=$row['phone_number'];?>" />
+			<b>Contact Name:*</b>
+			<input name="contact_name" type="text" value="<?php echo $login_session=$row['contact_name'];?>" required/>
+		<br>
+		<br>
+		
+			<b>Contact Number:*</b>
+			<input name="contact_telephone" type="tel" value="<?php echo $login_session=$row['phone_number'];?>" required/>
 		<br>	
 		<br>
 		
-			<label for="site_link">Website Link for Posting for this Job:</label>
-			<input type="url" name ="site_link" value="https://">
+			<b>Website Link for Posting for this Job:*</b>
+			<input type="url" name ="site_link" value="https://" required/>
 		<br>	
 		<br>
 		
-		<label for="poster_email">Company's Email:</label>
-			<input type="email" name ="poster_email" value="<?php echo $login_session=$row['email_address'];?>" />
+		<b>Company's Email:*</b>
+			<input type="email" name ="poster_email" value="<?php echo $login_session=$row['email_address'];?>" required/>
 		<br>	
 		<br>
 		
 		
-		<label for="apply_count">Total Applicants:</label>
+		<b>Total Applicants:</b>
 			<input type="number" name ="apply_count" value="0" />
 		<br>	
 		<br>
 		
-		<label for="job_startdate">Job Start Date:</label>
+		<b>Job Start Date:</b>
 		    <input type="date" name="job_startdate">
 		<br>
 		<br>
-			<label for="job_enddate">Job End Date:</label>
+			<b>Job End Date:</b>
 		    <input type="date" name="job_enddate">
-		<br>
-		<!--br>
-			Job Status:<br>
-			<input type="radio" name="fk_job_status_id" value="1" />Permanent<br>	
-			<input type="radio" name="fk_job_status_id" value="2" />Part-Time<br>
-			<input type="radio" name="fk_job_status_id" value="3" />Contract<br>
-			<input type="radio" name="fk_job_status_id" value="4" />Temporary/Contract/Project<br>
-			<input type="radio" name="fk_job_status_id" value="5" />Placement Student<br>	
-			<input type="radio" name="fk_job_status_id" value="6" />Seasonal<br>	
-		<br>
-			Job Type:<br>
-			<input type="radio" name="fk_job_type_id" value="1" />Full-time<br>	
-			<input type="radio" name="fk_job_type_id" value="2" />Part-Time<br>
-			<input type="radio" name="fk_job_type_id" value="3" />Per Day<br-->
-				
-		<br>
+		<br><br>
+
+
+<input type="submit" name="submit" value="Post Job">
+</form>
+
+</p>
+<p>
+		<form action="job2status.php" method="POST">
 		
-	
-		<input type="submit" name="submit" value="Post Job" >
+		<input type="submit" name="submit" value="Continue to Post More Detail">
 		</form>
-		<br>
-		
-		<form action="welcomejp.php" method="POST">
+		</p>
+<form action="welcomejp.php" method="POST">
 		
 		<input type="submit" name="submit" value="Home Page">
 		</form>
-		
-		<form action="job2status.php" method="POST">
-		
-		<input type="submit" name="submit" value="Continue for Posting More Related to Above Posted Job">
-		</form>
+	
 			
+		</div>
+	</div>
 	
-			<br>
-		   
-		
-		
-			<!--input type="submit" value="Submit"-->
-	
-<b><p align="right"><a href="logoutjs.php">Sign Out</a></p></b>
-<!--/fieldset-->
-</div>
-</div>
+		<div id="footnote">
+			<div class="clearfix">
+				<div class="connect">
+					<a href="https://www.facebook.com/" class="facebook"></a><a href="https://twitter.com/" class="twitter"></a><a href="https://plus.google.com/" class="googleplus"></a>
+				</div>
+				<p>
+					Rohit. Patil Job Site
+				</p>
+			</div>
+		</div>
+	</div>
 </body>
 </html>

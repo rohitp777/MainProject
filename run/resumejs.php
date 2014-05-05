@@ -1,3 +1,15 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>My Resume</title>
+
+<!--link rel="stylesheet" href="css/screen.css" /-->
+<link rel="stylesheet" type="text/css" href="css/styleregform.css" />
+
+<script src="../lib/jquery.js"></script>
+<script src="../jquery.validate.js"></script>
 <?php
 	
 	require('connect.php');
@@ -86,7 +98,8 @@ if(isset ($_POST['fk_employee_id']) && isset($_POST['cv_title']))
 	 
 	 if ($result2 = mysql_query($sql3))
 	 {
-	 echo "Entered Success";
+	// header("location: resumejs.php");
+	 echo "<b>"."Resume Details Submitted Successfully Continue to Upload Resume"."</b>";
 	 }
 	 
 	  else
@@ -113,17 +126,6 @@ if(isset ($_POST['fk_employee_id']) && isset($_POST['cv_title']))
 ?>
 
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<title>My Resume</title>
-
-<!--link rel="stylesheet" href="css/screen.css" /-->
-<link rel="stylesheet" type="text/css" href="style.css" />
-
-<script src="../lib/jquery.js"></script>
-<script src="../jquery.validate.js"></script>
 
 <script>
 $.validator.setDefaults({
@@ -205,32 +207,54 @@ $().ready(function() {
 	});
 });
 </script>
-
 <style type="text/css">
-#commentForm { width: 500px; }
-#commentForm label { width: 250px; }
-#commentForm label.error, #commentForm input.submit { margin-left: 253px; }
-#signupForm { width: 670px; }
-#signupForm label.error {
-	margin-left: 10px;
-	width: auto;
-	display: inline;
+body {
+	font-family:Arial, Helvetica, sans-serif
 }
-#newsletter_topics label.error {
-	display: none;
-	margin-left: 103px;
+#availability_status {
+	font-size:11px;
+	margin-left:10px;
 }
-
-.red {
-  content:"*" ;
-color: red;
-font-size:20px;
+#email_status {
+	font-size:11px;
+	margin-left:10px;
+}
+input.form_element {
+	width: 221px;
+	background: transparent url('bg.jpg') no-repeat;
+	color : #747862;
+	height:20px;
+	border:0;
+	padding:4px 8px;
+	margin-bottom:0px;
+}
+label {
+	width: 125px;
+	float: left;
+	text-align: left;
+	margin-right: 0.5em;
+	display: block;
+}
+.style_form {
+	margin:3px;
+}
+#content {
+	margin-left: auto;
+	margin-right: auto;
+	width: 600px;
+	margin-top:200px;
+}
+#submit_btn {
+	margin-left:133px;
+	height:30px;
+	width: 250px;
 }
 </style>
 
+
+
 </head>
 <body>
-	
 
 
 <!--form action="resumejs.php" class="cmxform" id="commentForm" method="POST">
@@ -258,35 +282,31 @@ font-size:20px;
 	
 	<!--div id="main">
 	<fieldset-->
-	<div id="content">
-	<div class="register-form">
-
-	<form action="resumejs.php" method="POST">
-
-	<h3>Fields marked with (<span class="red">*</span>) are required</h3>
-		
-			<label for="fk_employee_id">Application id: <span class="red">*</span> </label>
+	<form action="resumejs.php" method="POST" class="register">
+ <fieldset class="row1">
+    <legend>Resume Details</legend>
+		<p>
+			<label for="fk_employee_id">Application id:* </label>
 			<input  name="fk_employee_id" type="text" value="<?php echo $login_session=$row['id'];?>"required readonly />
-		<br>
-		<br>
-			<label for="cv_title">Application Name: <span class="red">*</span> </label>
+			</p>
+		<p>
+			<label for="cv_title">Application Name:*</label>
 			<input name="cv_title" minlength="2" type="text" required />
-		<br>	
-	
-		<br>
+		</p>
+		<p>
 			<label for="cv_description">Skills: </label>
 			<input  type="text" name="cv_description"/>
-		<br>
-		<br>
-			<label for="cv_file_name">Resume Name: <span class="red">*</span></label>
+		</p>
+		<p>
+			<label for="cv_file_name">Resume Name:*</label>
 			<input  type="text" name="cv_file_name" required/>
-		<br>
-		<br>		
-			<label for="cv_file_type">CV Name with Type (eg: ResumeName.docx) <span class="red">*</span></label>
+		</p>	
+		<p>
+			<label for="cv_file_type">CV Name with Type (eg: ResumeName.docx)*</label>
 			<input  type="text" name="cv_file_type" required/>
-		<br>
-		<br>
-			<label for="cv_file_exe">CV Format Type (eg: .docx, .doc, .pdf, .rtf, .txt) <span class="red">*</span></label>
+		</p>
+		<p>
+			<label for="cv_file_exe">CV Format Type (eg: .docx, .doc, .pdf, .rtf, .txt)*</label>
 			<select name="cv_file_exe" required/>
 			<option selected value="">Select Type</option>
 			<option value=".doc">.docx</option> 
@@ -295,22 +315,27 @@ font-size:20px;
 			<option value=".rtf">.rtf</option> 
 			<option value=".txt">.txt</option> 
 			</select>
-		<br>
-		<br>
-			<label for="cv_file_size">CV File Size (max capacity:200kb):  <span class="red">*</span></label>
-			<br>
+		</p>
+		<p>
+			<label for="cv_file_size">CV File Size (max capacity:200kb):*</label>
+			</p>
+			<br><br>
+			
 			<input type="radio" name="cv_file_size" value="1" checked required/>0-50<br>	
 			<input type="radio" name="cv_file_size" value="2" required/>50-100<br>
 			<input type="radio" name="cv_file_size" value="3" required/>100-150<br>
 			<input type="radio" name="cv_file_size" value="4" required/>150-200<br>
-		<br>
-		
-		
-			<label for="cv_status">Resume Explore: <span class="red">*</span></label>
-			<input type="radio" name="cv_status" value="Public" checked required/>Public (Resume is Accessible for all Employer) 	
-			<input type="radio" name="cv_status" value="Private" required/>Private (Resume is Accessible for only Job Applied Employer)
-		<br>
-		<br>
+			<p>
+			<label for="cv_status">Resume Explore:*</label></p>
+			<p>
+			<input type="radio" name="cv_status" value="Public" checked required/>Public (Resume is Accessible for all Employer) 
+			</p>
+			<p>
+			<input type="radio" name="cv_status" value="Private" required/ >Private (Resume is Accessible for only Job Applied Employer)
+		</p>
+		</fieldset>
+		 <fieldset class="row2">
+		 <legend>Experience and Qalification Details</legend> 
 			<label for="year_experience">Work Experience:</label>
 			<select  name="year_experience">
 			<option value="" selected="selected">None</option> 
@@ -318,8 +343,7 @@ font-size:20px;
 			<option value="1-2 Year">1-2 Year</option> 
 			<option value="3-Above Years">3-Above Year</option> 
 			</select>
-		<br>
-		<br>
+		<p>
 			<label for="highest_education">Highest Education:</label>
 			<select  name="highest_education">
 			<option value="Bachelors">Bachelor's</option> 
@@ -328,8 +352,8 @@ font-size:20px;
 			<option value="Other">Other</option> 
 			<option value="PhD">PhD</option> 
 			</select>
-		<br>
-		<br>
+		</p>
+		<p>
 			<label for="salary_range">Expected Salary Range (Annually):</label>
 			<select  name="salary_range">
 			<option selected value="">Select Salary</option>
@@ -337,97 +361,45 @@ font-size:20px;
 			<option value="50,000-100,000">50,000-100,000</option> 
 			<option value="100,000-Above">100,000-Above</option> 
 			</select>
-		<br>
-		<br>
-			<label for="availability">Availability For Job: <span class="red">*</span></label>	
+	</p>
+	<p>
+			<label for="availability">Availability For Job: *</label>	
+				</p>
+					<p>
 			<input type="radio" name="availability" value="Y" checked required/>Yes
-			<input type="radio" name="availability" value="N" required/>No<br>
-		<br>
-		<br>
-			<label for="start_date">Date Availability to Start the Job: <span class="red">*</span></label>
+			</p>
+				<p>
+			<input type="radio" name="availability" value="N" required/>No
+		</p>
+			</fieldset>
+			 <fieldset class="row2">
+			  <legend>More Personal Details</legend> 
+			<p>
+			<label for="start_date">Date Availability to Start the Job:*</label>
 		    <input type="date" name="start_date" required/>
-		<br>
-		<br>
-			<label for="positions">Applying Positions: <span class="red">*</span></label><br>
-		    <textarea name="positions" required/></textarea>
-		<br>
-		<br>
-			<label for="recent_job_title">Current Job Title (if no than type none): <span class="red">*</span></label>
+		</p>
+		<p>
+			<label for="positions">Applying Positions:*</label>
+		    <input type="text" name="positions" required/>
+		</p>
+		<p>
+			<label for="recent_job_title">Current Job Title (if no than type none):*</label>
 		    <input type="text" name="recent_job_title" required/>
-		<br>
-		<br>
-			<label for="recent_employer">Current Employer (if no than type none): <span class="red">*</span></label>
+		</p>
+		<p>
+			<label for="recent_employer">Current Employer (if no than type none):*</label>
 		    <input type="text" name="recent_employer" required/>
-		<br>
-		<br>
-			<label for="recent_industry_work">Current Designated Work (if no than type none): <span class="red">*</span></label>
+	</p>
+	<p>
+			<label for="recent_industry_work">Current Designated Work (if no than type none):*</label>
 		    <input type="text" name="recent_industry_work" required/>
-		<br>
-		<br>
-			<label for="look_job_type">Applying Job Type: <span class="red">*</span></label>
-			<select  name="look_job_type" required/>
-			<option selected value="">Select Type</option>
-			<option value="full-time">Full-Time</option> 
-			<option value="part-time">Part-Time</option> 
-			<option value="per-day">Per-Day</option> 
-			</select>
-		<br>
-		<br>
-			<label for="look_job_status">Applying Job Status: <span class="red">*</span></label>
-			<select  name="look_job_status" required/>
-			<option selected value="">Select Type</option>
-			<option value="permanent">Permanent</option> 
-			<option value="part-time">Part-Time</option> 
-			<option value="contract">Contract</option> 
-			<option value="temporary-contract-project">Temporary-Contract-Project</option> 
-			<option value="placement-student">Placement Student</option> 
-			<option value="seasonal">Seasonal</option> 
-			</select>
-		<br>
-		<br>
-			<label for="city">City/Town: <span class="red">*</span></label>
-		    <input type="text" name="city" required/>
-		<br>
-		<br>
-		<script type="text/javascript" src="countries.js"></script>
-		
-			<label for="country">Country:</label>
-		       <select onchange="print_state('state_province',this.selectedIndex);" id="country" name ="country"></select>
-	<br>
-	<br>
-			<label for="state_province">State:</label>
-		             <select name ="state_province" id ="state_province"></select>
-		<script language="javascript">print_country("country");</script>	
-		<br>
-		<br>
-			<label for="are_you_auth">Are You Authorized to Work (Give information about your Status in Short): <span class="red">*</span></label><br>
-		    <textarea name="are_you_auth" required/></textarea>
-		<br>
-		<br>
-			<label for="willing_to_relocate">Willing To Relocate: <span class="red">*</span></label>
-			<input type="radio" name="willing_to_relocate" value="Y" checked required/>Yes
-			<input type="radio" name="willing_to_relocate" value="N" required/>No
-		<br>
-		<br>
-			<label for="willing_to_travel">Willing To Travel: <span class="red">*</span></label>
-			<input type="radio" name="willing_to_travel" value="Y" checked required/>Yes
-			<input type="radio" name="willing_to_travel" value="N" required/>No
-		<br>
-		<br>
-			<label for="additional_notes">Additional Notes Related to Applied Jobs:</label><br>
-		    <textarea  name="additional_notes"></textarea>
-		<br>
-		<br>
-		<label for="created_at">Resume Creation Date:</label>
-		    <input type="date" name="created_at">
-		<br>
-		<br>
-			<label for="modified_at">Modified Date:</label>
-		    <input type="date" name="modified_at">
-		<br>
-		<br>
-		Job Industry Sector:<select name="var_name"> 
-<option selected>---Select Job Category---</option>
+	</p>
+	</fieldset>
+	<fieldset class="row1">
+		 <legend>Required Job Related Information</legend> 
+		 <p>
+	<label for="var_name">	 Job Industry Sector:</label><select name="var_name"> 
+<option >Select Job Category</option>
 <option value="1">Accounting and Auditing Services</option> 
 <option value="2">Advertising and PR Services </option>  
 <option value="3">Aerospace and Defence </option>  
@@ -459,26 +431,106 @@ font-size:20px;
 <option value="29">Insurance  </option>  	
 <option value="30">Internet Services </option>  	
 </select>
-<br>	
-		<input type="submit" name="Submit" value="Submit Application" >
+</p>
+<p>
+			<label for="look_job_type">Applying Job Type:*</label>
+			<select  name="look_job_type" required/>
+			<option selected value="">Select Type</option>
+			<option value="full-time">Full-Time</option> 
+			<option value="part-time">Part-Time</option> 
+			<option value="per-day">Per-Day</option> 
+			</select>
+	</p>
+	<p>
+			<label for="look_job_status">Applying Job Status: *</label>
+			<select  name="look_job_status" required/>
+			<option selected value="">Select Type</option>
+			<option value="permanent">Permanent</option> 
+			<option value="part-time">Part-Time</option> 
+			<option value="contract">Contract</option> 
+			<option value="temporary-contract-project">Temporary-Contract-Project</option> 
+			<option value="placement-student">Placement Student</option> 
+			<option value="seasonal">Seasonal</option> 
+			</select>
+		</p>
+		<p>
+			<label for="city">City/Town: *</label>
+		    <input type="text" name="city" required/>
+		</p>
+		<p>
+		<script type="text/javascript" src="countries.js"></script>
+			<label for="country">Country:</label><select onchange="print_state('state_province',this.selectedIndex);" id="country" name ="country"></select>
+		</p>
+		<p>
+			<label for="state_province">State:</label>
+		             <select name ="state_province" id ="state_province"></select>
+		<script language="javascript">print_country("country");</script>	
+		</p>
+		<p>
+			<label for="are_you_auth">Are You Authorized to Work (Give information about your Status in Short):*</label><br>
+		    <input type="text" name="are_you_auth" required/>
+		</p>
+		<p>
+			<label for="willing_to_relocate">Willing To Relocate:*</label>	
+			</p>
+			<p>
+			<input type="radio" name="willing_to_relocate" value="Y" checked required/>Yes
+			</p>
+			<p>
+	<input type="radio" name="willing_to_relocate" value="N" required/>No	
+	</p>
+	<p>
+			<label for="willing_to_travel">Willing To Travel: *</label>
+			</p>
+			<p>
+			<input type="radio" name="willing_to_travel" value="Y" checked required/>Yes
+			</p>
+			<p>
+			<input type="radio" name="willing_to_travel" value="N" required/>No
+		</p>
+		</fieldset>
+			<fieldset class="row 2">
+		 <legend>Additional Details</legend> 
+		 <p>
+			<label for="additional_notes">Additional Notes Related to Applied Jobs:</label><br>
+		    <input type="text"  name="additional_notes">
+		</p>
+		<p>
+		<label for="created_at">Resume Creation Date:</label>
+		    <input type="date" name="created_at">
+		</p>
+		<p>
+			<label for="modified_at">Modified Date:</label>
+		    <input type="date" name="modified_at">
+		</p>
+		</fieldset>
+		<fieldset class="row">
+		<div>
+		<input type="submit" name="Submit" value="Submit Application &raquo;" id="submit_btn" class="button">
 		</form>
-		<br>
 		<form action="cvupload.php" method="POSt">
-		<input type="submit" value="Continue to Upload Resume">
+		<p>
+		<input type="submit" value="Continue to Upload Resume &raquo;" id="submit_btn" class="button">
+		</p>
+
 		</form>
-			
+		<form action="welcomejs.php" method="POST">
+		<p>
+		<input type="submit" name="submit" value="Home Page &raquo;" id="submit_btn" class="button">
+		</p>
+		</form>
+		
 			<!--label for="ufile"><strong>Browse to Upload Resume:</strong></label><br>
 			<label for="ufile">Select File:</label>
 			<input name="ufile" type="file" id="ufile" size="50" /-->
-			<br>
-		   
-		
-		
 			<!--input type="submit" value="Submit"-->
+		<form action="logoutjs.php" method="POST">	
+		<input type="submit" value="Log Out &raquo;" id="submit_btn" class="button">
+		</form>	
 	
-<b><p align="right"><a href="logoutjs.php">Sign Out</a></p></b>
+<!--b><p align="right"><a href="logoutjs.php">Sign Out</a></p></b-->
 <!--/fieldset-->
 </div>
-</div>
+</fieldset>	
 </body>
 </html>

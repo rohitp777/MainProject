@@ -31,7 +31,7 @@ header("location: welcomejp.php");
 }
 else 
 {
-$msg= "Your Login Name or Password is invalid";
+$msg= "Your Login Name or Password is Invalid";
 }
 }
 ?>
@@ -42,14 +42,12 @@ $msg= "Your Login Name or Password is invalid";
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <title>Rohit Patil Job Site</title>
-<link rel="stylesheet" type="text/css" href="style.css" />
+<link rel="stylesheet" type="text/css" href="styleerror.css" />
 
 </head>
 <body>
 <!-- Form for logging in the users -->
-<div id="content">
 
-<div class="register-form">
 <?php
 if(isset($msg) & !empty($msg)){
 		echo $msg;

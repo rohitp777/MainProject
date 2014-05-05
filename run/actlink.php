@@ -1,7 +1,7 @@
 <html>
 <head>
 <title>Rohit Patil Job Site</title>
-<link rel="stylesheet" type="text/css" href="style.css" />
+<link rel="stylesheet" type="text/css" href="stylereg.css" />
 </head>
 <body>
 <div class="register-form">
@@ -92,13 +92,22 @@ $mail->From = "rockyrox7777@gmail.com";
 $mail->FromName = "Rohit Patil";
 	
 $mail->addAddress("rockyrox7777@gmail.com","User 2");
+$mail->addAddress("$email","User 2");
 	// send e-mail to ...
 	//$to=$email;
 
-$mail->Subject = "Your confirmation link here";
-$mail->Body = "Your Confirmation link \r\n";
-$mail->Body = "Click on this link to activate your account \r\n";
-$mail->Body = "http://localhost/MainProject/run/confirm.php?passkey=$confirm_code";
+//$mail->Subject = "Your confirmation link here";
+//$mail->Body = "Your Confirmation link \r\n";
+//$mail->Body = "Click on this link to activate your account \r\n";
+//$mail->Body = "http://localhost/MainProject/run/confirm.php?passkey=$confirm_code";
+
+
+$mail->Subject = "Your Job2Dream account activation confirmation link here";
+//$mail->Body = "Your Comfirmation link \r\n";
+//$mail->Body = "Click on this link to activate your account \r\n";
+//$mail->Body = "http://localhost/MainProject/run/confirm.php?passkey=$confirm_code";
+
+$mail->Body = "<b>"."Click below on Confirmation Link to activate you account"."</b>"."<br>"."http://localhost/MainProject/run/confirm.php?passkey=$confirm_code";
 
 // send email
 //$mail->mail($mail->addAddress,$mail->Subject,$mail->Body,$mail->From);
@@ -116,7 +125,7 @@ echo "Not found your email in our database";
 
 if($mail->Send())
 {
-echo "Your Confirmation link Has Been Sent To Your Email Address.";
+echo "<b>"."Your Confirmation link Has Been Sent To Your Email Address."."</b>";
 }
 else {
 echo "Cannot send Confirmation link to your e-mail address";

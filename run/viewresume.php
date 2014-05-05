@@ -1,14 +1,60 @@
-<!DOCTYPE html>
-<html lang="en">
+
+
+<!DOCTYPE HTML>
+<html>
 <head>
-<meta charset="utf-8">
-<title>Profiles for Job Providers</title>
-<link rel="stylesheet" type="text/css" href="style.css" />
+	<meta charset="UTF-8">
+	<title>Rohit Patil Job Site</title>
+	<link rel="stylesheet" href="css/style.css" type="text/css">
 </head>
 <body>
-<div id="content">
-	<div class="register-form">
-<?php
+	<div id="header">
+		<div class="clearfix">
+			<div class="logo">
+				<a href="index.html"><img src="images/logotop2.png" alt="LOGO" height="52" width="362"></a>
+			</div>
+			<ul class="navigation">
+				<li class="active">
+					<a href="http://localhost/MainProject/run/welcomejp.php">Home</a>
+				</li>
+				<li>
+					<a href="#">My Details</a>
+					<div>
+						<a href="http://localhost/MainProject/run/jpdetail.php">MY ACCOUNT DETAILS</a>
+						<a href="http://localhost/MainProject/run/forgotjp.php">UPDATE PASSWORD</a>
+					</div>
+				</li>
+				<li>
+					<a href="#">My Jobs</a>
+					<div>
+						<a href="http://localhost/MainProject/run/jobpost.php">ADVERTISE A JOB</a>
+						<a href="http://localhost/MainProject/run/jobadvertisedetail.php">VIEW ADVERTISED JOBS</a>
+							<a href="http://localhost/MainProject/run/viewjobapply.php">VIEW JOB APPLICATIONS</a>
+					</div>
+				</li>
+				<li>
+					<a href="http://localhost/MainProject/run/searchcvjp.php">Search For Resume's</a>
+				</li>
+				<li>
+					<a href="#">Recruiter Resources</a>
+				</li>
+				<li>
+					<a href="logoutjp.php">Log Out</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div id="contents">
+		<div class="clearfix">
+
+			<h1>Job Applicants for Your Posted Job</h3>
+			<div class="frame2">
+				<div class="box">
+					<img src="images/providerhome2.jpg" alt="Img" height="298" width="924">
+				</div>
+			</div>
+			<p>
+			<?php
 require('connect.php');
 
 include('lockjp.php');
@@ -123,95 +169,115 @@ $ses_sql=mysql_query("select c.id as cvid,c.cv_title,c.cv_description,c.cv_file_
 		
 
 ?>
-<label for="cvid"><b>Resume id:</b></label><?php $cvid=$_GET['cvid'];
+<b>Resume id:</b>&nbsp;<?php $cvid=$_GET['cvid'];
 echo "$cvid";?>
 		<br>
 		<br>
-<label for="cv_title"><b>Applicant Name:</b></label><?php $cvtitle=$_GET['cv_title']; echo "$cvtitle";?>
+<b>Applicant Name:</b>&nbsp;<?php $cvtitle=$_GET['cv_title']; echo "$cvtitle";?>
 			
 		<br>	
 	
 		<br>
-<label for="cv_description"><b>Applicant Skills:</b></label><?php 	$cvdesc=$_GET['cv_description'];echo "$cvdesc";?>
+<b>Applicant Skills:</b>&nbsp;<?php 	$cvdesc=$_GET['cv_description'];echo "$cvdesc";?>
 			
 		<br>
 		<br>
-<label for="cv_file_name"><b>Applicant Resume Name:</b></label><?php $cvname=$_GET['cv_file_name'];echo "$cvname";?>
+<b>Applicant Resume Name:</b>&nbsp;<?php $cvname=$_GET['cv_file_name'];echo "$cvname";?>
 			
 		<br>
 		<br>
-<label for="year_experience"><b>Work Experience:</b></label><?php $cvexp=$_GET['year_experience']; echo "$cvexp";?>
+<b>Work Experience:</b>&nbsp;<?php $cvexp=$_GET['year_experience']; echo "$cvexp";?>
 			
 		<br>
 		<br>
-<label for="highest_education"><b>Highest Education:</b></label><?php $cvedu=$_GET['highest_education']; echo "$cvedu";?>
+<b>Highest Education:</b>&nbsp;<?php $cvedu=$_GET['highest_education']; echo "$cvedu";?>
 
 		<br>
 		<br>
-<label for="salary_range"><b>Expected Salary Range (Annually):</b></label><?php $cvsalary=$_GET['salary_range']; echo "$cvsalary";?>
+<b>Expected Salary Range (Annually):</b>&nbsp;<?php $cvsalary=$_GET['salary_range']; echo "$cvsalary";?>
 			
 		<br>
 		<br>
-<label for="availability"><b>Availability For Job:</b></label><?php $availability=$_GET['availability']; echo "$availability";?>	
+<b>Availability For Job:</b>&nbsp;<?php $availability=$_GET['availability']; echo "$availability";?>	
 			
 		<br>
 		<br>
-<label for="start_date"><b>Date Availability to Start the Job:</label></b><?php $startdate=$_GET['start_date']; echo "$startdate";?>
+<b>Date Availability to Start the Job:</b>&nbsp;<?php $startdate=$_GET['start_date']; echo "$startdate";?>
 		    
 		<br>
 		<br>
-<label for="positions"><b>Applied Job Positions:</b></label><?php $position=$_GET['positions'];
+<b>Applied Job Positions:</b>&nbsp;<?php $position=$_GET['positions'];
 echo "$position";?>
 		    
 		<br>
 		<br>
-<label for="recent_job_title"><b>Current Job Title:</b> </label><?php $recentjobtitle=$_GET['recent_job_title']; echo "$recentjobtitle";?>
+<b>Current Job Title:</b>&nbsp;<?php $recentjobtitle=$_GET['recent_job_title']; echo "$recentjobtitle";?>
 		    
 		<br>
 		<br>
-<label for="recent_employer"><b>Current Employer:</b> </label><?php $recentemployer=$_GET['recent_employer']; echo "$recentemployer";?>
+<b>Current Employer:</b> &nbsp;<?php $recentemployer=$_GET['recent_employer']; echo "$recentemployer";?>
 		    
 		<br>
 		<br>
-<label for="recent_industry_work"><b>Current Designated Work:</b></label><?php $recentindwork=$_GET['recent_industry_work']; echo "$recentindwork";?>
+<b>Current Designated Work:</b>&nbsp;<?php $recentindwork=$_GET['recent_industry_work']; echo "$recentindwork";?>
 		<br>
 		<br>
-<label for="look_job_type"><b>Applied Job Type:</b> </label><?php $cvjobtype=$_GET['look_job_type']; echo "$cvjobtype";?>
+<b>Applied Job Type:</b>&nbsp;<?php $cvjobtype=$_GET['look_job_type']; echo "$cvjobtype";?>
 		<br>
 		<br>
-<label for="look_job_status"><b>Applied Job Status:</b> </label><?php $cvjobstatus=$_GET['look_job_status']; echo "$cvjobstatus";?>
+<b>Applied Job Status:</b>&nbsp;<?php $cvjobstatus=$_GET['look_job_status']; echo "$cvjobstatus";?>
 		<br>
 		<br>
-<label for="city"><b>City/Town: </b></label><?php $city=$_GET['city']; echo "$city";?>
+<b>City/Town: </b>&nbsp;<?php $city=$_GET['city']; echo "$city";?>
 		<br>
 		<br>
-<label for="country"><b>Country:</b></label><?php $country=$_GET['country']; echo "$country";?>		 
+<b>Country:</b>&nbsp;<?php $country=$_GET['country']; echo "$country";?>		 
 	<br>
 	<br>
-<label for="state_province"><b>State:</b></label><?php $state=$_GET['state_province']; echo "$state";?>	        
+<b>State:</b>&nbsp;<?php $state=$_GET['state_province']; echo "$state";?>	        
 		<br>
 		<br>
-<label for="are_you_auth"><b>Authorized to Work</b> </label><?php $auth= $_GET['are_you_auth']; echo "$auth";?>
+<b>Authorized to Work:</b>&nbsp;<?php $auth= $_GET['are_you_auth']; echo "$auth";?>
 	
 		<br>
 		<br>
-<label for="willing_to_relocate"><b>Willing To Relocate:</b> </label><?php $relocate= $_GET['willing_to_relocate']; echo "$relocate";?>
+<b>Willing To Relocate:</b>&nbsp;<?php $relocate= $_GET['willing_to_relocate']; echo "$relocate";?>
 		<br>
 		<br>
-<label for="willing_to_travel"><b>Willing To Travel:</b></label><?php $travel=$_GET['willing_to_travel']; echo "$travel";?>
+<b>Willing To Travel:</b>&nbsp;<?php $travel=$_GET['willing_to_travel']; echo "$travel";?>
 			
 		<br>
 		<br>
-<label for="cat_name"><b>Job Category Selected:</b></label><?php $catname=$_GET['cat_name']; echo "$catname";?>
+<b>Job Category Selected:</b> &nbsp;<?php $catname=$_GET['cat_name']; echo "$catname";?>
 		  
 		<br>
 		<br>
-<form action="resumemaisend.php" method="GET">
+		
+<form action="resumemaisend.php?cv_title=$cvtitle" method="GET">
 <input type="submit" name="submit" value="Send Job">
 </form>
 
+</p>
+
+<form action="welcomejp.php" method="POST">
 		
-</div>
-</div>
+		<input type="submit" name="submit" value="Home Page">
+		</form>
+
+			
+		</div>
+	</div>
+	
+		<div id="footnote">
+			<div class="clearfix">
+				<div class="connect">
+					<a href="https://www.facebook.com/" class="facebook"></a><a href="https://twitter.com/" class="twitter"></a><a href="https://plus.google.com/" class="googleplus"></a>
+				</div>
+				<p>
+					Rohit. Patil Job Site
+				</p>
+			</div>
+		</div>
+	</div>
 </body>
 </html>
