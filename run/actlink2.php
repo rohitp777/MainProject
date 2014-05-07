@@ -1,11 +1,31 @@
+
+
+<!DOCTYPE HTML>
 <html>
 <head>
-<title>Rohit Patil Job Site</title>
-<link rel="stylesheet" type="text/css" href="stylereg.css" />
+	<meta charset="UTF-8">
+	<title>Rohit Patil Job Site</title>
+	<link rel="stylesheet" href="css/style.css" type="text/css">
 </head>
 <body>
-<div class="register-form">
-<?php
+	<div id="header">
+		<div class="clearfix">
+			<div class="logo">
+				<a href="index.html"><img src="images/logotop2.png" alt="LOGO" height="52" width="362"></a>
+			</div>
+			
+		</div>
+	</div>
+	<div id="contents">
+		<div class="clearfix">
+		<h1>Registration Status</h3>
+			<div class="frame2">
+				<div class="box">
+					<img src="images/luck.jpg" alt="Img" height="298" width="924">
+				</div>
+			</div>
+			<p>
+				<?php
 session_start();
 include "connect.php"; //connects to the database
 
@@ -106,7 +126,7 @@ echo "Not found your email in our database";
 
 if($mail->Send())
 {
-echo "<b>"."Your Confirmation link Has Been Sent To Your Email Address."."</b>";
+echo "<marquee>"."<h2>"."Your Confirmation link Has Been Sent To Your Email Address !!!"."</h2>"."</marquee>";
 }
 else {
 echo "Cannot send Confirmation link to your e-mail address";
@@ -137,6 +157,24 @@ if ($_POST ['email_address']="") {
 */
 // mysql_close($connection); 
 ?>
-</div>
+
+
+
+</p>
+
+		</div>
+	</div>
+	
+		<div id="footnote">
+			<div class="clearfix">
+				<div class="connect">
+					<a href="https://www.facebook.com/" class="facebook"></a><a href="https://twitter.com/" class="twitter"></a><a href="https://plus.google.com/" class="googleplus"></a>
+				</div>
+				<p>
+					Rohit. Patil Job Site
+				</p>
+			</div>
+		</div>
+	</div>
 </body>
 </html>

@@ -16,40 +16,31 @@
 			</div>
 			<ul class="navigation">
 				<li class="active">
-					<a href="index.html">Home</a>
+					<a href="http://localhost/MainProject/run/welcomejp.php">Home</a>
 				</li>
 				<li>
-					<a href="about.html">My Details</a>
+					<a href="#">My Details</a>
 					<div>
-						<a href="http://localhost/MainProject/run/jsdetail.php">MY ACCOUNT DETAILS</a>
-						<a href="http://localhost/MainProject/run/forgotjs.php">UPDATE PASSWORD</a>
+						<a href="http://localhost/MainProject/run/jpdetail.php">MY ACCOUNT DETAILS</a>
+						<a href="http://localhost/MainProject/run/forgotjp.php">UPDATE PASSWORD</a>
 					</div>
 				</li>
 				<li>
-					<a href="practices.html">Resume & Applications</a>
+					<a href="#">My Jobs</a>
 					<div>
-						<a href="http://localhost/MainProject/run/resumejs.php">REGISTER CV/RESUME</a>
-						<a href="#">MY SAVED RESUME</a>
+						<a href="http://localhost/MainProject/run/jobpost.php">ADVERTISE A JOB</a>
+						<a href="http://localhost/MainProject/run/jobadvertisedetail.php">VIEW ADVERTISED JOBS</a>
+							<a href="http://localhost/MainProject/run/viewjobapply.php">VIEW JOB APPLICATIONS</a>
 					</div>
 				</li>
 				<li>
-					<a href="lawyers.html">Job Search</a>
-					<div>
-						<a href="http://localhost/MainProject/run/jobsearchjs.php">JOB SEARCH BY KEYWORDS</a>
-						<a href="http://localhost/MainProject/run/jobsearchsector.php">JOB SEARCH BY CATEGORY</a>
-					</div>
+					<a href="http://localhost/MainProject/run/searchcvjp.php">Search For Resume's</a>
 				</li>
 				<li>
-					<a href="news.html">Career Advice</a>
-					<div>
-						<a href="singlepost.html">News Single Post</a>
-					</div>
+					<a href="http://localhost/MainProject/run/recruiter.php">Recruiter Resources</a>
 				</li>
 				<li>
-					<a href="contact.html">Services</a>
-				</li>
-				<li>
-					<a href="logoutjs.php">Log Out</a>
+					<a href="logoutjp.php">Log Out</a>
 				</li>
 			</ul>
 		</div>

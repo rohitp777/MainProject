@@ -36,7 +36,7 @@
 					<a href="http://localhost/MainProject/run/searchcvjp.php">Search For Resume's</a>
 				</li>
 				<li>
-					<a href="#">Recruiter Resources</a>
+					<a href="http://localhost/MainProject/run/recruiter.php">Recruiter Resources</a>
 				</li>
 				<li>
 					<a href="logoutjp.php">Log Out</a>

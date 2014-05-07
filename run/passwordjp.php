@@ -1,7 +1,7 @@
 <?php
 	
 	require('connect.php');
-	include('lockjp.php');
+	//include('lockjp.php');
     // If the values are posted, insert them into the database.
     if (isset($_POST['username']) && isset($_POST['passwd']))
   
@@ -14,7 +14,7 @@
 			
 	 if( mysql_query($sql))
 	   {
-        $msg = "<h2>"."Congrats!!! Your password has been Updated."."</h2>";
+        $msg = "<marquee>"."<h2>"."Congrats!!! Your password has been Updated."."</h2>"."</marquee>";
        }
 	
 	   
@@ -37,13 +37,14 @@
 			<div class="logo">
 				<a href="index.html"><img src="images/logotop2.png" alt="LOGO" height="52" width="362"></a>
 			</div>
-			<marquee><b>Welcome,<?php echo $login_session=$row['title']. "&nbsp;" . $login_session=$row['fname'];
+			<!--marquee><b>Welcome,<?php /* echo $login_session=$row['title']. "&nbsp;" . $login_session=$row['fname'];
 echo ". ";
 echo $login_session=$row['sname']. "&nbsp;" . "of" . "&nbsp;" . $login_session=$row['company_name']. "&nbsp;" . "Company";
-  ?></b></marquee>
+*/
+  ?></b></marquee-->
 			<ul class="navigation">
 				<li class="active">
-					<a href="http://localhost/MainProject/run/welcomejp.php">Home</a>
+					<!--a href="http://localhost/MainProject/run/welcomejp.php">Home</a>
 				</li>
 				<li>
 					<a href="#">My Details</a>
@@ -67,7 +68,7 @@ echo $login_session=$row['sname']. "&nbsp;" . "of" . "&nbsp;" . $login_session=$
 					<a href="http://localhost/MainProject/run/recruiter.php">Recruiter Resources</a>
 				</li>
 				<li>
-					<a href="logoutjp.php">Log Out</a>
+					<a href="logoutjp.php">Log Out</a-->
 				</li>
 			</ul>
 		</div>
@@ -95,9 +96,9 @@ if(isset($msg) & !empty($msg)){
 	</form>
 
 </p>
-<form action="welcomejp.php" method="POST">
+<form action="loginprovider.html" method="POST">
 		
-		<input type="submit" name="submit" value="Home Page">
+		<input type="submit" name="submit" value="Login">
 		</form>
 		</div>
 	</div>

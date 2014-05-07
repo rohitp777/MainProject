@@ -37,23 +37,65 @@ $msg= "Your Login Name or Password is Invalid";
 ?>
 
 
-<DOCTYPE html>
+
+ 
+ 
+ 
+ 
+
+<!DOCTYPE HTML>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<title>Rohit Patil Job Site</title>
-<link rel="stylesheet" type="text/css" href="styleerror.css" />
-
+	<meta charset="UTF-8">
+	<title>Rohit Patil Job Site</title>
+	<link rel="stylesheet" href="css/style.css" type="text/css">
 </head>
 <body>
-<!-- Form for logging in the users -->
-
-<?php
+	<div id="header">
+		<div class="clearfix">
+			<div class="logo">
+				<a href="index.html"><img src="images/logotop2.png" alt="LOGO" height="52" width="362"></a>
+			</div>
+			
+			<ul class="navigation">
+				<li class="active">
+					
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div id="contents">
+		<div class="clearfix">
+			<h1>Login Status for Job Provider</h3>
+			
+			<div class="frame2">
+				<div class="box">
+					<img src="images/error.jpg" alt="Img" height="298" width="924">
+				</div>
+			</div>
+			<h2>
+			  <?php
 if(isset($msg) & !empty($msg)){
 		echo $msg;
 	}
  ?> 
- </body>
- </div>
- </div>
- </html>
+</h2>
+
+</p>
+
+		</div>
+	</div>
+	
+		<div id="footnote">
+			<div class="clearfix">
+				<div class="connect">
+					<a href="https://www.facebook.com/" class="facebook"></a><a href="https://twitter.com/" class="twitter"></a><a href="https://plus.google.com/" class="googleplus"></a>
+				</div>
+				<p>
+					Rohit. Patil Job Site
+				</p>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

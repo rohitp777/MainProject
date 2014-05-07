@@ -20,8 +20,11 @@
 </div>
 </body>
 </html-->
+<?php
+//require('connect.php');
+include('lockjs.php');
 
-
+?>
 
 <!DOCTYPE HTML>
 <html>
@@ -36,39 +39,46 @@
 			<div class="logo">
 				<a href="index.html"><img src="images/logotop.png" alt="LOGO" height="52" width="362"></a>
 			</div>
+			<marquee><b>Welcome,<?php echo $login_session=$row['fname'];
+echo ". ";
+echo $login_session=$row['sname'];
+/*
+echo "<br>";
+echo "User-ID:";
+echo $login_session=$row['id'];
+*/
+	  ?></b></marquee>
 			<ul class="navigation">
 				<li class="active">
-					<a href="index.html">Home</a>
+					<a href="welcomejs.php">Home</a>
 				</li>
 				<li>
-					<a href="about.html">My Details</a>
+					<a href="#">My Details</a>
 					<div>
 						<a href="http://localhost/MainProject/run/jsdetail.php">MY ACCOUNT DETAILS</a>
 						<a href="http://localhost/MainProject/run/forgotjs.php">UPDATE PASSWORD</a>
 					</div>
 				</li>
 				<li>
-					<a href="practices.html">Resume & Applications</a>
+					<a href="#">Resume & Applications</a>
 					<div>
 						<a href="http://localhost/MainProject/run/resumejs.php">REGISTER CV/RESUME</a>
-						<a href="#">MY SAVED RESUME</a>
+						
 					</div>
 				</li>
 				<li>
-					<a href="lawyers.html">Job Search</a>
+					<a href="#">Job Search</a>
 					<div>
 						<a href="http://localhost/MainProject/run/jobsearchjs.php">JOB SEARCH BY KEYWORDS</a>
 						<a href="http://localhost/MainProject/run/jobsearchsector.php">JOB SEARCH BY CATEGORY</a>
 					</div>
 				</li>
 				<li>
-					<a href="news.html">Career Advice</a>
-					<div>
-						<a href="singlepost.html">News Single Post</a>
-					</div>
+					<a href="careerjs.php">Career Advice</a>
+					
 				</li>
 				<li>
-					<a href="contact.html">Services</a>
+					<a href="servicejs.php">Services</a>
 				</li>
 				<li>
 					<a href="logoutjs.php">Log Out</a>

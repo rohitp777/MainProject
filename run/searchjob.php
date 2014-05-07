@@ -103,7 +103,7 @@ if(isset($msg) & !empty($msg)){
  ?> 
  </b>
  </p>
-			<h1>Post Job Type about above Posted Job</h3>
+			<h1>Post Search Engine about above Posted Job</h3>
 		<form action="searchjob.php" method="POST">
 			<div class="frame2">
 				<div class="box">

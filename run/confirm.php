@@ -1,10 +1,31 @@
-<?php
-echo "<html>";
-echo "<head>";
-echo "<title>Rohit Patil Job Site</title>";
-echo "<link rel='stylesheet' type='text/css' href='styleact.css' />";
-echo "</head>";
-echo "<body>";
+
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Rohit Patil Job Site</title>
+	<link rel="stylesheet" href="css/style.css" type="text/css">
+</head>
+<body>
+	<div id="header">
+		<div class="clearfix">
+			<div class="logo">
+				<a href="index.html"><img src="images/logotop.png" alt="LOGO" height="52" width="362"></a>
+			</div>
+			
+		</div>
+	</div>
+	<div id="contents">
+		<div class="clearfix">
+		<h1>Registration Status</h3>
+			<div class="frame2">
+				<div class="box">
+					<img src="images/activation.png" alt="Img" height="298" width="924">
+				</div>
+			</div>
+			<p>
+				<?php
 
 require('connect.php');
 
@@ -66,17 +87,41 @@ else{
 	// if successfully moved data from table"temp_members_db" to table "registered_members" displays message "Your account has been activated" and don't forget to delete confirmation code from table "temp_members_db"
 	if($result2==mysql_query($sql2)){
 	 //header("Location: activate.html");
-		echo "<b>"."Your account has been activated"."</b>";
+		echo "<marquee>"."<h2>"."Your account has been activated !!!"."</h2>"."</marquee>";
+			echo "<b>"."Login with Your Username and Password"."</b>";
 		// Delete information of this user from table "temp_members_db" that has this passkey 
 		//$sql3="DELETE FROM $tbl_name1 WHERE confirm_code = '$passkey'";
 		//$result3=mysql_query($sql3);
 	
 	}
 }
-echo "</div>";
-echo "</body>";
-echo "</html>";
+
 
 
 ?>
 
+
+
+
+
+</p>
+<form action="http://localhost/MainProject/run/loginseeker.html" method="POST">
+		
+		<input type="submit" name="submit" value="Login">
+		</form>
+		</div>
+	</div>
+	
+		<div id="footnote">
+			<div class="clearfix">
+				<div class="connect">
+					<a href="https://www.facebook.com/" class="facebook"></a><a href="https://twitter.com/" class="twitter"></a><a href="https://plus.google.com/" class="googleplus"></a>
+				</div>
+				<p>
+					Rohit. Patil Job Site
+				</p>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

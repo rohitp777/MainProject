@@ -19,7 +19,7 @@ include('lockjs.php');
 			<div class="logo">
 				<a href="index.html"><img src="images/logotop.png" alt="LOGO" height="52" width="362"></a>
 			</div>
-			<b>Welcome,<?php echo $login_session=$row['fname'];
+			<marquee><b>Welcome,<?php echo $login_session=$row['fname'];
 echo ". ";
 echo $login_session=$row['sname'];
 /*
@@ -27,40 +27,38 @@ echo "<br>";
 echo "User-ID:";
 echo $login_session=$row['id'];
 */
-	  ?></b>
+	  ?></b></marquee>
 			<ul class="navigation">
 				<li class="active">
-					<a href="index.html">Home</a>
+					<a href="welcomejs.php">Home</a>
 				</li>
 				<li>
-					<a href="about.html">My Details</a>
+					<a href="#">My Details</a>
 					<div>
 						<a href="http://localhost/MainProject/run/jsdetail.php">MY ACCOUNT DETAILS</a>
 						<a href="http://localhost/MainProject/run/forgotjs.php">UPDATE PASSWORD</a>
 					</div>
 				</li>
 				<li>
-					<a href="practices.html">Resume & Applications</a>
+					<a href="#">Resume & Applications</a>
 					<div>
 						<a href="http://localhost/MainProject/run/resumejs.php">REGISTER CV/RESUME</a>
-						<a href="#">MY SAVED RESUME</a>
+						
 					</div>
 				</li>
 				<li>
-					<a href="lawyers.html">Job Search</a>
+					<a href="#">Job Search</a>
 					<div>
 						<a href="http://localhost/MainProject/run/jobsearchjs.php">JOB SEARCH BY KEYWORDS</a>
 						<a href="http://localhost/MainProject/run/jobsearchsector.php">JOB SEARCH BY CATEGORY</a>
 					</div>
 				</li>
 				<li>
-					<a href="news.html">Career Advice</a>
-					<div>
-						<a href="singlepost.html">News Single Post</a>
-					</div>
+					<a href="careerjs.php">Career Advice</a>
+				
 				</li>
 				<li>
-					<a href="contact.html">Services</a>
+					<a href="servicejs.php">Services</a>
 				</li>
 				<li>
 					<a href="logoutjs.php">Log Out</a>
@@ -71,6 +69,7 @@ echo $login_session=$row['id'];
 	<div id="contents">
 		<div id="adbox">
 			<div class="clearfix">
+			
 				<img src="images/jstop1.jpg" alt="Img" height="382" width="594">
 				<div class="detail">
 					<p>When you leave college, there are thousands of people out there with the same degree you have;<br> 
@@ -80,7 +79,7 @@ echo $login_session=$row['id'];
 				</div>
 			</div>
 		</div>
-	
+
 		<div class="featured">
 			<h2>Current Job Related News</h2>
 			<ul class="clearfix">
@@ -96,6 +95,7 @@ echo $login_session=$row['id'];
 					</p>
 					<a href="http://money.cnn.com/news/specials/jobs/" class="more">Read More</a>
 				</li>
+			
 				<li>
 					<div class="frame1">
 						<div class="box">
@@ -108,6 +108,7 @@ echo $login_session=$row['id'];
 					</p>
 					<a href="http://management.fortune.cnn.com/2014/05/01/supply-chain-jobs/?iid=SF_BN_LN" class="more">Read More</a>
 				</li>
+			
 				<li>
 					<div class="frame1">
 						<div class="box">
@@ -119,6 +120,7 @@ echo $login_session=$row['id'];
 					</p>
 					<a href="http://money.cnn.com/2014/04/28/news/economy/states-minimum-wage/index.html?iid=SF_BN_LN" class="more">Read More</a>
 				</li>
+				
 				<li>
 					<div class="frame1">
 						<div class="box">
@@ -132,9 +134,9 @@ echo $login_session=$row['id'];
 					<a href="http://money.cnn.com/interactive/pf/state-minimum-wage/?iid=SF_BN_LN" class="more">Read More</a>
 				</li>
 			</ul>
+		
 		</div>
 	</div>
-	
 		<div id="footnote">
 			<div class="clearfix">
 				<div class="connect">
